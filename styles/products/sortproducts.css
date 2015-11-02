@@ -1,0 +1,6 @@
+.item{border:2px solid gray; width:85px; cursor:pointer; min-height: 135px;}
+.photoproduct{padding-top: 8px;}
+.blockicons{list-style-type: none;  /*width: 400px;*/}
+.blockicons li{float:left; position:relative;}
+.content{margin:0 auto; margin-top: 40px; width:420px;}
+.limit{margin-right:15px;}

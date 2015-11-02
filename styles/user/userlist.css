@@ -1,0 +1,21 @@
+
+.datatable{
+border: 1px solid #D6DDE6;
+border-radius: 5px;
+background-color: #dfe7f2;
+margin: 0 auto;
+margin-top:50px;
+}
+
+.datatable td{
+    padding:2px 30px 2px 30px;
+}
+
+
+.datatable tr {
+ font-size:1.2em;
+}
+
+.datatable tr:hover{
+    background-color:#d2d7e4;
+}

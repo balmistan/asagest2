@@ -1,0 +1,50 @@
+@font-face {
+    font-family: "tahoma";
+    src: url('tahoma.ttf');
+}
+
+
+html, body {
+    margin:0;
+    padding-top:5px;
+}
+
+
+table{align:center; background: url('images/background_sheet.png') repeat;}
+.table2{margin-top: 50px !important;}
+body{
+    text-align: center;
+    font-family: tahoma, Verdana, Helvetica, Arial, sans-serif;
+    /*background-color: #fff;*/
+    background: url('images/d356.gif');
+    color: #444;
+    font-size: 75%;
+}
+
+.sheet_title{padding-top:5px; padding-left:50px; height:50px; font-weight:bold; font-size:1.2em;}
+.space_50{height:50px;}
+.red{color:red;}
+label{ color:#005cff; font-size: 1.2em;}   /*label nei form*/
+input, textarea{border:1px solid #cccccc; letter-spacing: 2px; background-color: transparent; border-radius:5px; -moz-border-radius:5px; -webkit-border-radius:5px;}    
+.suggestion{ color:#999999; font-size: 0.8em; font-style: italic;} /*suggerimento interno a textbox*/
+
+input:focus, textarea:focus {
+    background-color: #f8f8f8;;
+    box-shadow:0px 0px 2px #cccccc;
+    -webkit-box-shadow:0px 0px 2px #cccccc;
+    -moz-box-shadow:0px 0px 2px #cccccc;
+}
+
+#errorDiv{max-width: 200px;}
+#modetest_description{color:blue; font-weight:bold; font-style: italic; padding-top:5px; padding-left:30px; margin: 0 auto;}
+form ul{display: block;}
+form ul li{list-style: none;}
+table{margin:0 auto; margin-top:10px; padding:10px;}
+
+/*Rimuove i bordi tratteggiati dai link in Firefox*/
+:focus {outline:none !important;}
+::-moz-focus-inner {border:0 !important;}
+#fastsearchdiv{background-color: #cccccc; width:40px; margin-top:40px; 	position:absolute; bottom:0; left:0;}
+#fastsearchdiv #searchtext{width:30px; padding:5px;}
+
+#DTable_info{padding-top: 4px !important; color: gray;}

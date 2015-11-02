@@ -1,0 +1,15 @@
+#container{margin-top:50px; margin:0 auto;}
+
+.icons{padding:35px; border:none; width: 128px; height: 128px;}
+
+ul{list-style: none;}
+
+li{display: inline;}
+
+a{
+  outline: none;
+}
+
+#bottom_pos{width:100%; text-align:center; position:absolute; bottom:0;}
+
+#logged_user{font-size:1.0em; color:blue; margin-top:35px;}

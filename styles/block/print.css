@@ -1,0 +1,25 @@
+@page {
+    size: A5 landscape !important;
+}
+
+.noprint{visibility:hidden; display: none;}
+
+#blocktableout{   
+    margin:auto;
+    margin-left:20px;
+    top:0;
+    float: right !important;
+    /*-webkit-transform: rotate(-90deg);*/
+    -moz-transform: rotate(-90deg);
+    filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=3);
+    
+}
+
+.tableout input[type="text"]{
+    color: gray !important;
+}
+
+.out_qtytot{text-align: right;}
+
+
+

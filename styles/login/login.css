@@ -1,0 +1,9 @@
+.sheet{margin: 0 auto;  margin-top:10px; padding:30px 30px 10px 0; text-align: center; width:35%;
+/*background: url('../page/images/background_sheet.png') repeat;*/
+background: url('../login/images/abstract.jpg') no-repeat; background-position:top right;
+}
+
+ul{margin: 0 auto; width:75%; }
+li{color:blue; font-weight:bold; padding-top:10px; list-style: none;}
+#username, #password, #captcha{font-size: 1.4em; width:100%;}
+#Accedi{margin:0 auto; margin-top:10px; font-size: 1.4em;}

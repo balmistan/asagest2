@@ -1,0 +1,15 @@
+
+
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+ * DataTables row classes
+ */
+.dataTable tr.even{
+	background-color: #eaebff;
+}
+
+
+.dataTable tr.odd {
+	background-color: #d3d6ff;
+}
+
+.dataTable th { text-align: center;}

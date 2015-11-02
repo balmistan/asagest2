@@ -1,0 +1,38 @@
+.code_tbox{width:70px;}
+.qta_tbox{width:120px; text-align: right;}
+.unity_tbox{}  /*larghezza minima impostata dal plugin*/
+
+.photodiv{
+    max-width:64px;
+    max-height: 64px;
+    cursor: pointer;
+    overflow:hidden;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -khtml-border-radius: 5px;
+    border-radius: 5px;
+}
+
+#webcam, #image_cover{width:320px; height:240px; margin: 0 auto; }
+
+#saved_msg{
+    position:absolute;
+    margin-left:40%;   /*come per tab login*/
+    width:20%; 
+    font-family: Verdana, Arial, Helvetica, sans-serif;
+    font-size: 3.6em;
+    text-align:left;
+    border:3px dotted gray;
+    color: gray;
+    visibility:hidden;     
+}
+
+#Salva, #Annulla, #addrow{margin-top: 20px; margin-bottom: 20px;}
+
+#unlock{float:right;}
+
+.rem{height:50px;}    /*button X*/
+
+#btable{background: url('icons/sfondo.jpg') repeat !important;}
+
+.ui-dialog{margin-top:60px;}  /*webcam*/

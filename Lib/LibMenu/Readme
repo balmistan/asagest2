@@ -1,0 +1,46 @@
+i file contenuti nella cartella sc sono stati presi dal progetto SmartyMenu ver. 1.1 di Monte Ohrt http://www.phpinsider.com/php/code/SmartyMenu/
+e sono state apportate modifiche per adattarli al progetto sc.
+
+
+FUNZIONAMENTO DELLA CLASSE MENU:
+$menu = new menu($tpl_page, $index_selected, $use_session);
+Utilizzo:
+
+Si crea un oggetto di tipo menu nel seguente modo:
+
+$menu = new menu($tpl_page, $index_selected, $use_session);
+
+$tpl_page sarà il link alla pagina tpl in cui andrà inserito il menù.
+
+$index_selected indica l' indice dell' opzione menù che dovrà apparire selezionata; default="" che indica nessuna opzione (Il funzionamento verrà desrito in seguito ed anche come dovranno essere numerati gli indici).
+
+$use_session indica se utilizzare o no la sessione per salvare il menù. Se true (lo è per default) l' array per la generazione del menù con Smarty  verrà creato una sola volta e salvato in sessione. Le volte successive se una pagina php richiederà il medesimo menù l' array non verrà ricreato ma letto da sessione.
+
+INDICI:
+
+Gli indici delle opzioni andranno indicati tramite stringhe contenenti cifre numeriche.
+Le opzioni principali del menù andranno indicate con stringhe contenenti valori interi, ad esempio:
+1 per la prima opzione da visualizzare, 2 per la seconda e così via.
+La classe accetta anche se vengono scritte così:   1.   2.  oppure   1.0     2.0 
+Ciò è stato fatto per semplificare l' aggiunta di nuove opzioni tramite cicli for ad esempio. 
+
+Le opzioni dei sottomenù andranno indicate con 2 valori numerici separati da un punto.
+
+Il primo valore indica l' opzione del menù alla quale agganciare il submenù.
+Ad esempio 1.1 indica che si tratta della prima opzione di un sottomenù che dovrà essere agganciata alla voce di menù con indice 1
+1.2 sarà la seconda opzione del medesimo sottomenù, e così via. 
+Seguendo questa procedura è possibile creare sottomenù di sottomenù.
+Ad esempo 1.1.1 indica la prima opzione di un sottomenu agganciato alla prima opzione di un altro sottomenù agganciato alla prima opzione del menù principale.
+In pratica la prima cifra si riferisce sempre all' opzione del menù principale.
+L' indice 1.0.1 non è valido in quanto leggendolo da destra verso sinistra significherebbe chiedere di agganciare un sottomenù all' elemento 0 del sottomenù superiore. L' indice 0 non è ammesso.
+
+Per aggiungere un' opzione si utilizza:
+
+
+
+
+
+
+
+
+Spiegazione del codice:

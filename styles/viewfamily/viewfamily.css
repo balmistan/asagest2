@@ -1,0 +1,57 @@
+
+#table1{margin-top: 50px; width: auto; font-family: Arial,Helvetica,sans-serif; font-size: 2.2em; font-style: italic; text-align: left;}
+#table1 td{padding:10px; }
+.sexeta{
+
+    font-weight: bolder;
+    font-style: italic;
+    text-align: center;
+    padding:2px;
+    margin-left:10px;
+}
+
+.bck_pink{background-color: pink;}
+.bck_blue{background-color: #aaaaff;}
+
+#change{margin: 0 auto; text-align: center;}
+
+td{padding-top:0 !important; padding-bottom:0 !important;}
+
+td:input{cursor:pointer;}
+
+.lk{
+    cursor:pointer;
+    padding:0 !important;
+}
+
+.green{color:#08971a;}
+.red{color:#900;}
+.yellow{ color:#c49004;}
+.blue{ color:#4586c9;}
+
+
+#num_scheda{font-weight: bolder; text-align:center; padding-top: 15px !important; padding-bottom: 15px !important;}
+
+.msg_bottom{font-size:0.7em !important; padding:0;}
+
+#note{font-style: italic;}
+
+.arrow{padding-top: 5px;}
+
+.suggestion{font-size:0.5em !important; color:black;}
+
+button{
+    margin-top: 10px; margin-bottom: 10px; padding:5px; font-size: 0.8em;
+}
+
+#cercascheda{font-size: 0.5em; margin:10px 0 0 15px;}
+
+.btn-group{margin-bottom: 15px !important;}
+
+#distr_btn{height: 1px;          /*pulsante nascosto*/
+            width: 1px;
+           margin-top: -3px; 
+           top:0;
+}
+
+#pageback{float:right; margin-top:30px;}

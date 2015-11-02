@@ -1,0 +1,23 @@
+#title{width:100%; text-align: center; font-family:Serif, Georgia, "Times New Roman"; 
+  line-height: 5px; font-weight: bold; margin-top:40px;} /*rendo visibile il titolo altrim nascosto sotto il menù*/
+.alleg{margin-top: 0px}
+#title p{font-size: 0.8em;}
+#left{float:left}
+#right{float: right;}
+.tableup{border-spacing: 0; font-weight: normal !important;}
+.tableup td{padding:2px; font-size: 0.9em; border:1px solid gray; }
+#contentdiv{margin-top:60px; font-size: 0.9em !important; font-weight: normal;}
+.p1{line-height: 22px;}
+#dich{text-align: center; font-weight: normal; font-size: 0.9em;}
+#date, #num{border:none; font-weight: normal; font-size: 1.1em; width:120px; background-color: white; text-align: center;}
+#num{width:80px !important;}
+.dx{text-align: right; padding-right: 40px;}
+.centred{text-align: center;}
+#distr3{margin: 0 auto; border:0; width:90%;}
+#distr3 td, th{border:1px solid black; padding:2px;}
+#distr3 td{ width:25%;}
+#distr3 .td1{width:50% !important;}
+#print{float:right; margin-right:50px;}
+.noborderdx{border-right:none !important;}
+.nobordertop{border-top:none !important;}
+#num_indig{font-weight: bold;}
