@@ -222,7 +222,7 @@ var datatableParam = {
         },
         {
             "sTitle": "Comune",
-            "sWidth": "70px",
+          //  "sWidth": "90px",
             "bSearchable": false
         },
         {
