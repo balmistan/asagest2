@@ -13,10 +13,6 @@ if (!accesslimited::isInAutorizedGroups(user::getUserName($session->getUserId())
 }
 
 
-$title = PAGETITLE . " - Ricerca schede";
-$shortcuticon = SHORTCUTICON;
-
-
 //configurazioni per l' inclusione dei link nella pagina
 $arr_style_config = array();
 $arr_js_config = array();
@@ -34,7 +30,7 @@ $arr_js_config[] = JQUERYNEW;
 $arr_js_config[] = JQUERY_UINEW;
 $arr_js_config[] = JQTABLES . "/media/js/jquery.dataTables.min.js";
 $arr_js_config[] = JQPLUGINS . "/datatable/ZeroClipboard.js";
-$arr_js_config[] = JQPLUGINS . "/dataTables.jqueryui.min.js";
+//$arr_js_config[] = JQPLUGINS . "/dataTables.jqueryui.min.js";
 //$arr_js_config[] = JQPLUGINS . "/datatable/TableTools.js";
 
 $arr_js_config[] = JQPLUGINS . "/datepicker/ui.datepicker-it.js";
@@ -46,8 +42,8 @@ $menu = getOrrMenu();
 
 $objSmarty = new Smarty();
 
-$objSmarty->assign("title", $title);
-$objSmarty->assign("shortcuticon", $shortcuticon);
+$objSmarty->assign("title", PAGETITLE . " - Ricerca schede");
+$objSmarty->assign("shortcuticon", SHORTCUTICON);
 $objSmarty->assign('arr_style_config', $arr_style_config);
 $objSmarty->assign('arr_js_config', $arr_js_config);
 $objSmarty->assign('menu', $menu);

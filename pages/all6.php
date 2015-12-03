@@ -84,6 +84,8 @@ $menu = getOrrMenu();
 //
 
 $objSmarty = new Smarty();
+$objSmarty->assign("title", PAGETITLE . " - Alleg. 6");
+$objSmarty->assign("shortcuticon", SHORTCUTICON);
 $objSmarty->assign('arr_out', $arr_out);
 $objSmarty->assign('arr_dbget', $arr_dbget);
 $objSmarty->assign('date', $date);

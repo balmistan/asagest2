@@ -1,9 +1,11 @@
 <!DOCTYPE HTML> 
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="it" lang="it">
     <head>
-        <title>Carico</title>
+        <title>{$title}</title>
+        <link rel="shortcut icon" type="image/png" href="{$shortcuticon}" />
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <meta name="generator" content="NetMDM" />
+        
         {foreach from=$arr_style_config item=linkcss}
             <link rel="stylesheet" href="{$linkcss}" type="text/css" media="all" />
         {/foreach}

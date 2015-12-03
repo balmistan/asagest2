@@ -53,6 +53,8 @@ $arr_js_config = array();
 $arr_style_config[] = UI_STYLENEW;
 $arr_style_config[] = JQTABLES . "/media/css/jquery.dataTables.min.css";
 
+
+$arr_style_config[] = "../styles/page/datatable.css";  //stile datatable aggiuntivo
 $arr_style_config[] = "../styles/page/page.css";
 //$arr_style_config[] = "../styles/page/TableTools_JUI.css";
 $arr_style_config[] = "../styles/orizontalmenu/orizontalmenu.css";
@@ -64,7 +66,7 @@ $arr_js_config[] = JQUERY_UINEW;
 $arr_js_config[] = JQTABLES . "/media/js/jquery.dataTables.min.js";
 $arr_js_config[] = JQPLUGINS . "/datatable/ZeroClipboard.js";
 //$arr_js_config[] = JQPLUGINS . "/datatable/TableTools.js";
-
+//$arr_js_config[] = JQPLUGINS . "/dataTables.jqueryui.min.js";//
 $arr_js_config[] = JQPLUGINS . "/datepicker/ui.datepicker-it.js";
 $arr_js_config[] = "js/fastsearch.js";
 $arr_js_config[] = "js/report.js";

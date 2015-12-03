@@ -40,26 +40,25 @@ var_dump(ini_get('post_max_size'));
 var_dump(ini_get('upload_max_filesize'));
 echo"<br /><br /><br />";
 */
-$title = PAGETITLE;
-$shortcuticon = SHORTCUTICON;
+
 
 //configurazioni per l' inclusione dei link nella pagina
 $arr_style_config = array();
 
 $arr_js_config = array();
 
-
+/*
 $is_mobile = strpos($_SERVER['HTTP_USER_AGENT'], 'Mobile');
 if ($is_mobile) {
     $arr_style_config[] = "../styles/mobile/page/page.css";
     $arr_style_config[] = "../styles/mobile/home/home.css";
     $arr_style_config[] = "../styles/mobile/orizontalmenu/orizontalmenu.css";
 } else {
-
+*/
     $arr_style_config[] = "../styles/page/page.css";
     $arr_style_config[] = "../styles/home/home.css";
     $arr_style_config[] = "../styles/orizontalmenu/orizontalmenu.css";
-}
+//}
 
 $arr_js_config[] = JQUERYNEW;
 $arr_js_config[] = "js/fastsearch.js";
@@ -70,8 +69,8 @@ $menu = getOrrMenu();
 
 $objSmarty = new Smarty();
 
-$objSmarty->assign("title", $title);
-$objSmarty->assign("shortcuticon", $shortcuticon);
+$objSmarty->assign("title", PAGETITLE . " - Home");
+$objSmarty->assign("shortcuticon", SHORTCUTICON);
 $objSmarty->assign('arr_style_config', $arr_style_config);
 $objSmarty->assign('arr_js_config', $arr_js_config);
 $objSmarty->assign('path_icons', $path_icons);

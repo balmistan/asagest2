@@ -123,7 +123,7 @@ class db {
         $this->dbName = $dbname;
 
         $this->Logger = new logger("../elog/dbclass.log", 0);
-        $this->LoggerDebug = new logger("../elog/debug_dbclass.log", 1);
+        $this->LoggerDebug = new logger("../elog/debug_dbclass.log", 0);
 
         $this->test = mt_rand(1, 10000000);
 

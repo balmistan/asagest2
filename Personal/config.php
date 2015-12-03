@@ -61,7 +61,7 @@ define("UI_STYLENEW","../Plugin/jquery-ui-1.11.4.custom/jquery-ui.min.css");
 
 define("SHORTCUTICON",$path."styles/page/images/cri.png");
 
-define("PAGETITLE", "ASAGesT");
+define("PAGETITLE", "ASAGesT 2");
 
 define("NOPHOTO", $path."styles/page/images/nophoto.png");
 

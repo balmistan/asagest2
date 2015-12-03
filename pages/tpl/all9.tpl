@@ -1,7 +1,8 @@
 <!DOCTYPE HTML> 
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="it" lang="it">
     <head>
-        <title>Allegato 6</title>
+        <title>{$title}</title>
+        <link rel="shortcut icon" type="image/png" href="{$shortcuticon}" />
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <meta name="generator" content="NetMDM" />
         <link rel="stylesheet" href="../styles/allegati/print.css" type="text/css" media="print" />
