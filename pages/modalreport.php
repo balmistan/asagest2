@@ -27,11 +27,11 @@ $arr_js_config = array();
 
 $arr_style_config[] = "../styles/report/modalreport.css";
 $arr_js_config[] = JQUERY;
-
+/*
 $arr_js_config[] = "../Plugin/signature-pad/jquery.signaturepad.js";
 $arr_js_config[] = "../Plugin/signature-pad/build/json2.min.js";
 $arr_js_config[] = "js/modalreport.js";
-
+*/
 //sdoppio gli array
 $distr=array();
 $distr['agea']=$arr['distributedproducts'];
@@ -40,7 +40,7 @@ unset($arr['distributedproducts']);
 
 $arr['signature'] = urlencode(stripslashes($arr['signature']));
 
-$codcons =  intval($_GET['sid']) + config::getConfig("start_index_blocksheet", "allegaticonfig".REFAGEA) - 1;
+$codcons =  intval($_GET['sid']);
 
 $objSmarty = new Smarty();
 //print_r($arr);

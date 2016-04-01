@@ -43,14 +43,14 @@
                     </tr>
                 {/foreach} 
             {/if}
-            <tr><td colspan=4>
+          <!--  <tr><td colspan=4>
                     <div class="sig sigWrapper">
                         <div class="typed"></div>
                         <canvas class="pad" width="300" height="55"></canvas>
                         <input type="hidden" name="output" class="output">
                     </div>
-                </td></tr>
+                </td></tr> -->
         </table>
-        <input type="hidden" id="signature" value="{$arr["signature"]}" />
+        <!--<input type="hidden" id="signature" value="{$arr["signature"]}" />-->
     </body>
 </html>

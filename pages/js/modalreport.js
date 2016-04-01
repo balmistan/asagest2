@@ -1,5 +1,5 @@
 $(document).ready(function(){
-    
+  /*  
     var sig = $("#signature").val()
     
     sig = decodeURIComponent(sig);
@@ -11,5 +11,5 @@ $(document).ready(function(){
         lineTop:45,
         validateFields : false
     }).regenerate(sig);
-    
+    */
 });

@@ -23,7 +23,7 @@ class allegatin {
     private $Logger;
 
     public function __construct($tabelle_cumulative = false) {
-        $this->Logger = new logger("../elog/allegatin.class.log", 1);
+        $this->Logger = new logger("../elog/allegatin.class.log", 0);
         $this->RegCum = "all8registercum" . REFAGEA;
         $this->ProdCum = "all8productcum" . REFAGEA;
 
