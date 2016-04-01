@@ -8,7 +8,7 @@ include ("orizontalmenu.php");
 
 $session = new session();
 
-$userId=$session->getUserId();
+$userId = $session->getUserId();
 
 $username = user::getUserName($userId);
 
@@ -17,29 +17,29 @@ if (!accesslimited::isInAutorizedGroups($username, array("admins", "users"))) {
     exit(0);
 }
 
-$db=new db();
-$arr_access=$db->getRows("sessions", array("lastDate", "ip_address"),array(
+$db = new db();
+$arr_access = $db->getRows("sessions", array("lastDate", "ip_address"), array(
     array("where", "userId", "=", $userId, true)
-),array(
+        ), array(
     array("ORDERBY", "lastDate"),
     array("ORDER", "DESC"),
     array("LIMIT", 2)
-));
+        ));
 
-if(count($arr_access)<2){
+if (count($arr_access) < 2) {
     $msg_last_date_login = "Primo accesso";
-}else{
-    $msg_last_date_login = "Precedente accesso effettuato in data ".  DataOra::isoDatetimeToDate($arr_access[1]['lastDate']). " alle ore ".DataOra::isoDatetimeToTime($arr_access[1]['lastDate']) . " IP: ". $arr_access[1]['ip_address'];
+} else {
+    $msg_last_date_login = "Precedente accesso effettuato in data " . DataOra::isoDatetimeToDate($arr_access[1]['lastDate']) . " alle ore " . DataOra::isoDatetimeToTime($arr_access[1]['lastDate']) . " IP: " . $arr_access[1]['ip_address'];
 }
 
 
 /*
-echo"<br /><br /><br />";
-var_dump(ini_get('memory_limit'));
-var_dump(ini_get('post_max_size'));
-var_dump(ini_get('upload_max_filesize'));
-echo"<br /><br /><br />";
-*/
+  echo"<br /><br /><br />";
+  var_dump(ini_get('memory_limit'));
+  var_dump(ini_get('post_max_size'));
+  var_dump(ini_get('upload_max_filesize'));
+  echo"<br /><br /><br />";
+ */
 
 
 //configurazioni per l' inclusione dei link nella pagina
@@ -48,17 +48,15 @@ $arr_style_config = array();
 $arr_js_config = array();
 
 /*
-$is_mobile = strpos($_SERVER['HTTP_USER_AGENT'], 'Mobile');
-if ($is_mobile) {
-    $arr_style_config[] = "../styles/mobile/page/page.css";
-    $arr_style_config[] = "../styles/mobile/home/home.css";
-    $arr_style_config[] = "../styles/mobile/orizontalmenu/orizontalmenu.css";
-} else {
-*/
-    $arr_style_config[] = "../styles/page/page.css";
-    $arr_style_config[] = "../styles/home/home.css";
-    $arr_style_config[] = "../styles/orizontalmenu/orizontalmenu.css";
-//}
+  $block = new block();
+  $block->getSheetCode();
+ */
+
+
+$arr_style_config[] = "../styles/page/page.css";
+$arr_style_config[] = "../styles/home/home.css";
+$arr_style_config[] = "../styles/orizontalmenu/orizontalmenu.css";
+
 
 $arr_js_config[] = JQUERYNEW;
 $arr_js_config[] = "js/fastsearch.js";

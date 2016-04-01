@@ -661,6 +661,27 @@ class block {
         ));
         return $res["nomeComune"];
     }
+    
+    /**
+     * Restituisce il codice consegna da visualizzare
+     * @param type $sheetId 
+     */
+    public function getSheetCode($sheetId=0){
+        /*
+        $res = $this->db->getRows("blocksheet", "sheetId", array(
+            array("where", "YEAR(dtime)", "=", "2016")
+        ));
+        
+        $cnt=1;
+        foreach($res as $key=>$value){
+            $this->db->update("blocksheet", array("cod_cons"=>$cnt++), array(
+                array("where", "sheetId", "=", $value["sheetId"])
+            ));
+        }
+        
+       // $this->logger->rawLog($res);
+        */
+    }
 
 }
 
