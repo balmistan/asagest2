@@ -18,15 +18,15 @@ class block {
 
         $this->logger = new logger("../elog/block.class.log", 1);
         if ($bancoalim) {
-            $this->distributed_table = "distributedproductbanco" . REFYEAR;
+            $this->distributed_table = "distributedproductbanco";
             $this->product_table = "productbancoalim";
             $this->product = new product(1);
         } else {
-            $this->distributed_table = "distributedproduct" . REFYEAR;
+            $this->distributed_table = "distributedproduct";
             $this->product_table = "product";
             $this->product = new product();
         }
-        $this->bsheet_table = "blocksheet" . REFYEAR;
+        $this->bsheet_table = "blocksheet";
         $this->bancoalim = $bancoalim;
         $this->db = new db();
         $this->person = new Person();
@@ -268,7 +268,7 @@ class block {
 
     public function getForModalForm($sheet_id) {
 
-        $arr = $this->db->getRow(array("blocksheet" . REFYEAR, "person"), array(
+        $arr = $this->db->getRow(array("blocksheet", "person"), array(
             "dtime", "signature",
             "surname",
             "name",
@@ -510,7 +510,7 @@ class block {
         $arr = $this->person->getPersonsId($idfamily);
 
         $str_ids = implode(",", $arr);
-        $str_query = "Select sheetId from blocksheet" . REFYEAR . " where dtime >= '" . $datemin . "' and dtime <= '" . $datemax . "' and personId in (" . $str_ids . ")";
+        $str_query = "Select sheetId from blocksheet where dtime >= '" . $datemin . "' and dtime <= '" . $datemax . "' and personId in (" . $str_ids . ")";
 
         $arr = $this->db->freeQuery($str_query, "checkDistrEff");
 
@@ -524,11 +524,11 @@ class block {
     function removeBlockSheet($sheetId) {
         //verifico che lo sheedId esista e che sia l' ultimo inserito.
         
-        $arr = $this->db->getRow("blocksheet" . REFYEAR, "MAX(sheetId)");
+        $arr = $this->db->getRow("blocksheet", "MAX(sheetId)");
         
         //$this->logger->rawLog($sheetId);
         
-        $arr = $this->db->getRow("blocksheet" . REFYEAR, "sheetId", array(), array(
+        $arr = $this->db->getRow("blocksheet", "sheetId", array(), array(
             array("ORDERBY", "sheetId"),
             array("ORDER", "DESC"),
         )); 
@@ -539,22 +539,22 @@ class block {
         
  
 //Procedo con la cancellazione:
-        $this->db->delete("distributedproduct" . REFYEAR, array(
+        $this->db->delete("distributedproduct", array(
             array("where", "sheetId", "=", $sheetId, true)
         ));
 
-        $this->db->delete("distributedproductbanco" . REFYEAR, array(
+        $this->db->delete("distributedproductbanco", array(
             array("where", "sheetId", "=", $sheetId, true)
         ));
 
-        $this->db->delete("blocksheet" . REFYEAR, array(
+        $this->db->delete("blocksheet", array(
             array("where", "sheetId", "=", $sheetId, true)
         ));
         // Indico nella tabella internal config che uno sheetId è stato rimosso. Quindi la nuova distribuzione dovrà acquisire questo sheetId
         config::setConfig("lastsheetidisdeleted", 1, "ultimo sheetid (blocchetto consegne) inserito è stato cancellato?", "internalconfig");
         config::setConfig("lastsheetid", $sheetId, "ultimo sheetid (blocchetto consegne) inserito", "internalconfig");
 
-        $res = $this->db->getRow("blocksheet" . REFYEAR, "Max(sheetId)");
+        $res = $this->db->getRow("blocksheet", "Max(sheetId)");
 
         config::setConfig("lastinsertedsheetid", $res["Max(sheetId)"], "ultimo sheetid presente", "internalconfig");
 
@@ -563,7 +563,7 @@ class block {
 
     public function getFamilyIdFromBlocksheet($id_blocksheet) {
         //Effettuo 2 query separate. Se la prima non da risultati significa ad esempio che la pagina blocchetto è stata eliminata.
-        $arr_pid = $this->db->getRow("blocksheet" . REFYEAR, "personId", array(
+        $arr_pid = $this->db->getRow("blocksheet", "personId", array(
             array("where", "sheetId", "=", $id_blocksheet, true)
         ));
         if (count($arr_pid) == 0)
@@ -598,9 +598,9 @@ class block {
 
         //Adesso prelevo i prodotti distribuiti Agea
 
-        $query3 = "SELECT qty, name_product, measureunity FROM distributedproduct" . REFYEAR .
+        $query3 = "SELECT qty, name_product, measureunity FROM distributedproduct" .
                 " JOIN product ON " .
-                "distributedproduct" . REFYEAR . ".id_product=" . "product" . ".id_product" .
+                "distributedproduct.id_product=" . "product" . ".id_product" .
                 " WHERE sheetId=" . $sheetid;
 
         $arr_res_3 = $this->db->freeQuery($query3, "getForPdfSheet 3");
@@ -609,9 +609,9 @@ class block {
 
         //Adesso prelevo i prodotti distribuiti Banco
 
-        $query4 = "SELECT qty, name_product, measureunity FROM distributedproductbanco" . REFYEAR .
+        $query4 = "SELECT qty, name_product, measureunity FROM distributedproductbanco" . 
                 " JOIN productbancoalim ON " .
-                "distributedproductbanco" . REFYEAR . ".id_product=" . "productbancoalim.id_product" .
+                "distributedproductbanco.id_product=" . "productbancoalim.id_product" .
                 " WHERE sheetId=" . $sheetid;
 
         $arr_res_4 = $this->db->freeQuery($query4, "getForPdfSheet 4");

@@ -50,9 +50,9 @@ $shortcuticon = SHORTCUTICON;
 $arr_style_config = array();
 $arr_js_config = array();
 
-$arr_style_config[] = UI_STYLENEW;
+//$arr_style_config[] = UI_STYLENEW;
 $arr_style_config[] = JQTABLES . "/media/css/jquery.dataTables.min.css";
-
+$arr_style_config[] = UI_STYLE;
 
 $arr_style_config[] = "../styles/page/datatable.css";  //stile datatable aggiuntivo
 $arr_style_config[] = "../styles/page/page.css";

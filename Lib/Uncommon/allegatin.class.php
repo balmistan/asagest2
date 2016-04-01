@@ -418,7 +418,7 @@ class allegatin {
     public function getLoad($date) {      //restituisce un array vuoto se alla data indicata non è presente alcun carico.
 // $arr_date = explode("/", $date);
 // $date = $arr_date[2] . "-" . $arr_date[1] . "-" . $arr_date[0];
-        $arr_qty = $this->db->getRows(array("all8registercum" . REFYEAR, "all8productcum" . REFAGEA), array("id_product", "carico", "all8productcum" . REFAGEA . ".id_insert", "numrif"), array(
+        $arr_qty = $this->db->getRows(array("all8registercum", "all8productcum" . REFAGEA), array("id_product", "carico", "all8productcum" . REFAGEA . ".id_insert", "numrif"), array(
             array("on", "all8registercum" . REFAGEA . ".id_insert", "=", "all8productcum" . REFAGEA . ".id_insert", true),
             array("where", "all8registercum" . REFAGEA . ".isload", "=", 1, true),
             array("and", "date", "=", $this->convertData($date))
@@ -629,7 +629,7 @@ class allegatin {
      * @return type torna 0 se quel valore di sheet_id non è presente, altrimenti 1
      */
     public function isUsedBlockSheet($sheet_id) {
-        $arr = $this->db->getRow("blocksheet" . REFYEAR, "sheetId", array(
+        $arr = $this->db->getRow("blocksheet", "sheetId", array(
             array("where", "sheetId", "=", $sheet_id, true)
         ));
         return count($arr);
@@ -644,7 +644,7 @@ class allegatin {
 
         //Verifico se sono presenti prodotti Agea distribuiti con quello sheetid
 
-        $test = $this->db->getRow("distributedproduct" . REFYEAR, "Id", array(
+        $test = $this->db->getRow("distributedproduct", "Id", array(
             array("where", "sheetId", "=", intval($sheetId), true)
         ));
 //$this->Logger->rawLog($test);
@@ -653,7 +653,7 @@ class allegatin {
 
         //prelevo data distribuzione e numero indigenti da blocksheet
 
-        $res = $this->db->getRow("blocksheet" . REFYEAR, array("dtime", "num_indig"), array(
+        $res = $this->db->getRow("blocksheet", array("dtime", "num_indig"), array(
             array("where", "sheetId", "=", $sheetId, true)
         ));
 
@@ -661,7 +661,7 @@ class allegatin {
         $num_indig_remove = intval($res["num_indig"]);
         //conto il numero di distribuzioni effettuate in quella data:
 
-        $distr = $this->db->getRows("blocksheet" . REFYEAR, "sheetId", array(
+        $distr = $this->db->getRows("blocksheet", "sheetId", array(
             array("where", "dtime", "like", $date . "%")
         ));
 
@@ -692,7 +692,7 @@ class allegatin {
         } else {//in caso di più distribuzioni correggo lo scarico
             //Prelevo elenco dei prodotti distribuiti:
             // $this->Logger->rawLog("più distribuzioni");
-            $res = $this->db->getRows("distributedproduct" . REFYEAR, array("id_product", "qty"), array(
+            $res = $this->db->getRows("distributedproduct", array("id_product", "qty"), array(
                 array("where", "sheetId", "=", $sheetId, true)
             ));
 
@@ -860,7 +860,7 @@ class allegatin {
      */
 
     public function getDateForReport() {
-        $arr_tmp = $this->db->getRows("blocksheet" . REFYEAR, "dtime");
+        $arr_tmp = $this->db->getRows("blocksheet", "dtime");
         $arr_out = array();
         for ($i = 0; $i < count($arr_tmp); $i++) {
             array_push($arr_out, substr($arr_tmp[$i]["dtime"], 0, 10));
