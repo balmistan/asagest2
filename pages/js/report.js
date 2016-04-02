@@ -14,8 +14,6 @@ $(document).ready(function () {
     var availableDates = getdate();
     $("#start_date").datepicker({
         "beforeShowDay": available,
-        "minDate": new Date($("#refyear").val(), 0, 1),
-        "maxDate": new Date($("#refyear").val(), 11, 31),
         "onSelect": function (selected, evnt) {
             datamin = $(this).val();
             sessionhandle("reportdatamin", "SETVAL", datamin)
@@ -25,8 +23,6 @@ $(document).ready(function () {
     });
     $("#end_date").datepicker({
         beforeShowDay: available,
-        "minDate": new Date($("#refyear").val(), 0, 1),
-        "maxDate": new Date($("#refyear").val(), 11, 31),
         onSelect: function (selected, evnt) {
             datamax = $(this).val();
             sessionhandle("reportdatamax", "SETVAL", datamax)

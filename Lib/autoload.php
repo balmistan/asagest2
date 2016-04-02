@@ -26,14 +26,8 @@ else if (file_exists($link4))
         die('file ' . $class_name . '.....php non trovato!');
 }
 
-$refyear = config::getConfig("yearref", "config");
 
 
-if( basename($_SERVER['PHP_SELF']) != "settings.php" && (!in_array($refyear, $opt['disponibleblocks'])))
-    header("Location: settings?err=1");
-
-
-define("REFYEAR", $refyear);
 define ("REFAGEA", config::getConfig("progagea", "config"));
 
 ?>

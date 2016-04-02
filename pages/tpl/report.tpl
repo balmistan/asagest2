@@ -64,7 +64,6 @@
         <div id="distr3"></div>
         <input type="hidden" id="default_selected_tabs" value="{$default_selected_tabs}" />
         <input type="hidden" id="config_start_blocksheet" value="{$config_start_blocksheet}" />
-        <input type="hidden" id="refyear" value="{$refyear}" />
         <br /><br />
     </body>
         

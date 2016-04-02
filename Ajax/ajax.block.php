@@ -13,7 +13,9 @@ secur::addSlashes($_POST);
 if (!isset($_POST['output']))      //campo firma
     $_POST['output'] = "";
 
-$logger = new logger("../elog/ajax.block.log", 0);
+$logger = new logger("../elog/ajax.block.log", 1);
+
+$logger->rawLog($_POST);
 
 //Rimuovo da $_POST i prodotti le cui quantità sono nulle in modo da non salvare quantità distribuite nulle nel db.
 $numelement = count($_POST['product_id']);  //Calcolo quì perchè durante il ciclo for le dimensioni dell' array varirano.

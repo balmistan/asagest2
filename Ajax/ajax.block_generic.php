@@ -103,18 +103,18 @@ function getMemoryScorsa() {
     global $db;
     $arr_products = array();
     //$_POST['id_mem'] contiene in questo caso il familyid
-    $arr_sheetId = $db->freeQuery("select max(sheetId) from blocksheet" . REFYEAR . " where personId in (select id_person from person where family_register_number=" . $_POST['id_mem'] . ")");
+    $arr_sheetId = $db->freeQuery("select max(sheetId) from blocksheet where personId in (select id_person from person where family_register_number=" . $_POST['id_mem'] . ")");
 
     if (count($arr_sheetId))
         $last_sheetId = $arr_sheetId[0]['max(sheetId)'];
 
-    $arr_agea = $db->freeQuery("select id_product, qty from distributedproduct" . REFYEAR . " where sheetId=" . $last_sheetId);
+    $arr_agea = $db->freeQuery("select id_product, qty from distributedproduct where sheetId=" . $last_sheetId);
 
     for ($i = 0; $i < count($arr_agea); $i++) {
         $arr_products[$arr_agea[$i]['id_product']] = $arr_agea[$i]['qty'];
     }
 
-    $arr_banco = $db->freeQuery("select id_product, qty from distributedproductbanco" . REFYEAR . " where sheetId=" . $last_sheetId);
+    $arr_banco = $db->freeQuery("select id_product, qty from distributedproductbanco where sheetId=" . $last_sheetId);
 
     for ($i = 0; $i < count($arr_banco); $i++) {
         $arr_products["banco_" . $arr_banco[$i]['id_product']] = $arr_banco[$i]['qty'];

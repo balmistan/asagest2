@@ -157,11 +157,6 @@ if (count($emsg)) {
     $class_color_msg = "red";
 }
 
-
-$correct_selected_block = (date("Y") == REFYEAR) ? "TRUE" :"FALSE";
-
-
-
 $objSmarty = new Smarty();
 
 $objSmarty->assign("title", PAGETITLE);
@@ -177,6 +172,5 @@ $objSmarty->assign('wmsg', $wmsg);
 $objSmarty->assign('emsg', $emsg);
 $objSmarty->assign('note', $arr_val['note']);
 $objSmarty->assign('usephoto', $usephoto);
-$objSmarty->assign('correct_selected_block', $correct_selected_block);
 $objSmarty->display('tpl/viewfamily.tpl');
 ?>

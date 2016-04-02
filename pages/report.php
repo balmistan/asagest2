@@ -75,12 +75,12 @@ $menu = getOrrMenu();
 if (isset($_SESSION["reportdatamin"])) {
     $start_date = $_SESSION["reportdatamin"];
 } else
-    $start_date = "01/01/" . REFYEAR;
+    $start_date = "01/01/" . date("Y");
 
 if (isset($_SESSION["reportdatamax"])) {
     $end_date = $_SESSION["reportdatamax"];
 } else
-    $end_date = "31/12/" . REFYEAR;
+    $end_date = date("d/m/Y");
 
 
 
@@ -113,7 +113,6 @@ $objSmarty->assign('arr_district', $arr_district);
 $objSmarty->assign('start_date', $start_date);
 $objSmarty->assign('end_date', $end_date);
 $objSmarty->assign('family_id', $family_id);
-$objSmarty->assign('refyear', REFYEAR);
 $objSmarty->assign('default_selected_tabs', $default_selected_tabs);
 $objSmarty->assign('config_start_blocksheet', config::getConfig("start_index_blocksheet", "allegaticonfig" . REFAGEA));
 $objSmarty->display('tpl/report.tpl');

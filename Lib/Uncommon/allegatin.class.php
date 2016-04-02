@@ -343,23 +343,6 @@ class allegatin {
         return intval($this->LastPage);
     }
 
-    /**
-     * Restituisce il successivo numero riga da assegnare all' insert. Usato nel carico/scarico 
-     */
-    /*     * ****
-      public function setNextRow() {
-      $rownum = 0;
-      $retval = $this->db->getRow($this->Table1, "rownum", array(), array(
-      array("ORDERBY", "id_insert"),
-      array("ORDER", "DESC")
-      ));
-      if (isset($retval["rownum"])) { //controllo inserito per evitare errore quando la tabella 8 è ancora vuota
-      if (intval($retval["rownum"]) < 24)
-      $rownum = 1 + intval($retval["rownum"]);
-      }
-      return $rownum;
-      }
-     */
 
     /**
      * Restituisce l' ultimo contenuto non vuoto inserito nella casella num. indig. in fase di load. (in genere contiene data prog. distrib.)

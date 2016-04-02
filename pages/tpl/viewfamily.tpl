@@ -91,7 +91,6 @@
                         </div></td></tr>
                     {/if}
             <tr><td colspan=3><input type="hidden" id="idfamily" value={$idfamily} /></td></tr>
-            <tr><td colspan=3><input type="hidden" id="correct_selected_block" value={$correct_selected_block} /></td></tr>
         </table>
 
     </body>

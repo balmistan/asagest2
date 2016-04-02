@@ -79,9 +79,9 @@ $(document).ready(function () {
                 highlights($(".out_qtytot[product_id='" + product_id + "']").parent().parent());
             }
             else
-                jAlert('Quantità non disponibile!')
+                alert('Quantità non disponibile!')
         } else {
-            jAlert("Modifica non permessa!")
+            alert("Modifica non permessa!")
         }
     });
 
@@ -95,6 +95,10 @@ $(document).ready(function () {
 
     //salvataggio
     $('#blockform').submit(function (e) {
+        
+       // e.preventDefault();
+        
+       // alert(JSON.stringify(URLToArray($(this).serialize())));
 
         $("#img_wait").show();    //Mostro clessidra
 
@@ -103,7 +107,7 @@ $(document).ready(function () {
 
             if ((getQtyBanco() + getQtyAgea()) == 0) {
                 $("#img_wait").hide();
-                jAlert("Nessun prodotto selezionato!")
+                alert("Nessun prodotto selezionato!")
                 return false;
             }
 
@@ -120,7 +124,7 @@ $(document).ready(function () {
 
             if (result_check == -5) {
                 $("#img_wait").hide();
-                jAlert("Non è possibile salvare in quanto si sta tentando di salvare con data precedente a quella dell' ultima operazione riportata nei registri.");
+                alert("Non è possibile salvare in quanto si sta tentando di salvare con data precedente a quella dell' ultima operazione riportata nei registri.");
                 return false;
             }
 
@@ -128,13 +132,13 @@ $(document).ready(function () {
 
                 if ($(".redcolor").length) {
                     $("#img_wait").hide();
-                    jAlert("Alcuni prodotti selezionati non sono disponibili!");
+                    alert("Alcuni prodotti selezionati non sono disponibili!");
                     return false;
                 }
 
                 if ($("#date") != undefined && $("#date").val() == "") {
                     $("#img_wait").hide();
-                    jAlert("Occorre indicare la data");
+                    alert("Occorre indicare la data");
                     return false;
                 }
 
@@ -145,7 +149,7 @@ $(document).ready(function () {
                     // if(check("check_distr_exists", "['idfamily':"+$('#num_scheda').val()+", 'date':"+$('#date').val()+"]")){
                     if (check("check_distr_exists", arr_ass) != 0) {
                         $("#img_wait").hide();
-                        jAlert("Non si possono effettuare due distribuzioni alla stessa famiglia nella medesima data. Se è l' ultima distribuzione effettuata nella giornata cliccare su visualizza ultima distribuzione per modificarla");
+                        alert("Non si possono effettuare due distribuzioni alla stessa famiglia nella medesima data. Se è l' ultima distribuzione effettuata nella giornata cliccare su visualizza ultima distribuzione per modificarla");
                         return false;
                     }
 //alert($(this).serialize())
@@ -153,7 +157,7 @@ $(document).ready(function () {
  //alert(JSON.stringify(URLToArray($(this).serialize())));
                     //Posso adesso inviare al server
                     var res = send($(this).serialize());      //invio al server
-
+alert(res);
                     $("#sheetId").val(res['sheetId']);
                     $("#debug").html(res['sheetId']);
                     var newsheetid = parseInt(res['sheetId']) + parseInt($("#config_start_blocksheet").val() - 1)
@@ -185,7 +189,7 @@ $(document).ready(function () {
             $("#img_wait").hide();
             return false;
         }
-
+e.preventDefault()
     });
     $("#sw_agea").click(function () {
         $(this).parent().removeClass("active");
@@ -259,10 +263,10 @@ $(document).ready(function () {
                     $(this).parent().parent().hide();
             });
             // if (qty_not_present)
-            //     jAlert("Le voci in rosso indicano quantità non presenti in giacenza. Correggere i valori prima di salvare!");
+            //     alert("Le voci in rosso indicano quantità non presenti in giacenza. Correggere i valori prima di salvare!");
 
         } else {
-            jAlert("Modifica non permessa!");
+            alert("Modifica non permessa!");
         }
 
     });
@@ -355,7 +359,7 @@ $(document).ready(function () {
 
                 if (res) {
                     $(".rowp").hide(); //nascondo righe prodotti 
-                    jAlert("Distribuzione cancellata!", "Esito OK", function () {
+                    alert("Distribuzione cancellata!", "Esito OK", function () {
                         location.reload();
                     });
 

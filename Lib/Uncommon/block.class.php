@@ -16,7 +16,7 @@ class block {
     public function __construct($bancoalim = false) {
         $session = new session();
 
-        $this->logger = new logger("../elog/block.class.log", 0);
+        $this->logger = new logger("../elog/block.class.log", 1);
         if ($bancoalim) {
             $this->distributed_table = "distributedproductbanco";
             $this->product_table = "productbancoalim";
@@ -60,17 +60,20 @@ class block {
      */
     //$arr_post contiene anche lo sheetId. se è una stringa vuota si tratta di nuovo inserimento altrimenti dovrò verificare se lo sheetId esiste già per poter dire se si tratta di nuovo inserimento o modifica.
     public function save($arr_post) {
-       
+
         secur::addSlashes($arr_post);
         $sheetId = $arr_post['sheetId'];
 
+        $cod_cons = 0;  //Numero progressivo ricevuta consegna
+
         $update = false;
-      if ($sheetId != "") {
+
+        if ($sheetId != "") {
             //Si tratta di update solo se la riga esiste già
             $arr1 = $this->db->getRow($this->bsheet_table, "sheetId", array(
                 array("where", "sheetId", "=", $sheetId, true)
             ));
-            
+
             if (count($arr1))
                 $update = true;
         }else {
@@ -81,7 +84,7 @@ class block {
                 $arr_post['sheetId'] = $sheetId;
                 config::setConfig("lastsheetidisdeleted", 0, "ultimo sheetid (blocchetto consegne) inserito è stato cancellato?", "internalconfig");
             }
-      }
+        }
 
         if ($arr_post['sheetId'] == "")  //Questo perchè se dovrò effettuare un nuovo inserimento, lo sheetid dovrà essere inserito da mySql se non settato.
             unset($arr_post['sheetId']);
@@ -104,11 +107,23 @@ class block {
 //L' aggiornamento del blocksheet non è previsto. Può solo essere cancellato mediante una funzione opportuna.
         if (!$update) { //nuovo inserimento
             //inserimento nuovo foglio
-           $this->db->insert($this->bsheet_table, $arr_save);
+            $this->db->insert($this->bsheet_table, $arr_save);
 
             $sheetId = $this->db->getLastInsertedId();
-            config::setConfig("lastsheetid", $sheetId, "ultimo sheetid (blocchetto consegne) inserito", "internalconfig"); //Questa variabile in caso di cancellazione contiene l' id appena rimosso
+/*
+            $tmp = $this->db->getRow("blocksheet", "MAX(sheetId)", array(
+                array("where", "sheetId", "<", $sheetId, true)
+            ));
             
+            $prec_sheetId = count($tmp) ? $tmp["MAX(sheetId)"] : 0;
+            
+            $tmp =  $this->db->getRow("blocksheet", array("cod_cons", "YEAR(dtime)"), array(
+               array("where", "sheetId", "=", $prec_sheetId, true ) 
+            ));
+
+            $this->logger->rawLog($tmp);
+*/
+            config::setConfig("lastsheetid", $sheetId, "ultimo sheetid (blocchetto consegne) inserito", "internalconfig"); //Questa variabile in caso di cancellazione contiene l' id appena rimosso
         }
 
 
@@ -131,7 +146,7 @@ class block {
                     $this->deleteProduct($arr_res[$i][$this->distribuited_assoc_form_db['product_id']], $sheetId);
                 }
             }
-        }  
+        }
         $this->productAddOrUpdate($arr_post, $sheetId);
 
         $arr_output['xxx']['sheetId'] = $sheetId;
@@ -146,7 +161,7 @@ class block {
 
     private function productAddOrUpdate($arr_post, $sheetId) {
         //non uso la classe secur perchè ricevo i dati da save e lì è già stata usata.
-      foreach ($arr_post['product_id'] as $i => $value) {
+        foreach ($arr_post['product_id'] as $i => $value) {
             $ispresent = $this->db->isPresent($this->distributed_table, array(
                 $this->distribuited_assoc_form_db['product_id'] => $arr_post['product_id'][$i],
                 $this->distribuited_assoc_form_db['sheetId'] => $sheetId
@@ -169,7 +184,6 @@ class block {
                         //aggiungere il limit 1
                 ));
             }
-            
         }
     }
 
@@ -241,27 +255,16 @@ class block {
     }
 
     public function getLastDistr($familyid) {
-        
-        $last_distr_date ="";
 
-        //$logger = new logger("block.class.log", 1);
-        //Puo succedere che sul blocchetto attuale non vi sono ancora distribuzioni ma su un precedente blocchetto si.  
-        //Devo quindi estendere la ricerca:
+        $last_distr_date = "";
 
-        $ref = intval(REFYEAR);
-       // $logger->rawLog($this->db->freeQuery("show tables like 'blocksheet".$ref."'"));
-        while ( count($this->db->freeQuery("show tables like 'blocksheet".$ref."'", "getLastDistr")) ) {
-          
-            $arr = $this->db->getRow(array("blocksheet" . $ref, "person"), "MAX(" . $this->bsheet_assoc_form_db['dtime'] . ")", array(
-                array("on", $this->bsheet_assoc_form_db["person_id"], "=", "id_person", true),
-                array("where", "family_register_number", "=", $familyid, true)
-            ));
+        $arr = $this->db->getRow(array("blocksheet", "person"), "MAX(" . $this->bsheet_assoc_form_db['dtime'] . ")", array(
+            array("on", $this->bsheet_assoc_form_db["person_id"], "=", "id_person", true),
+            array("where", "family_register_number", "=", $familyid, true)
+        ));
 
+        if (count($arr)) {
             $last_distr_date = $arr['MAX(dtime)'];
-            if ($last_distr_date != "")
-                break;
-            $ref --;
-          // $logger->rawLog($this->db->freeQuery("show tables like 'blocksheet".$ref."'"));
         }
         return $last_distr_date;
     }
@@ -415,12 +418,7 @@ class block {
             // Procedo contando le date sui fogli blocchetto inferiori a quella specificata con datamin.
             // Datamin quando chiediamo l' Allegato 9 è quella con orario inizio giornata.
             //
-            //non si tratta di dati immessi dall' esterno e quindi posso eseguire una freeQuery:
-            //    if ($onlyagea) {
-            //$arr = $this->db->freeQuery("SELECT id_insert FROM all8registercum".REFYEAR. " where isload = 0" );
-            //       } else {
-            //       $arr = $this->db->freeQuery("SELECT DISTINCT dtime FROM blocksheet".REFYEAR." where dtime <= '" . $datamin . "'");
-            //   }
+            
             //Aggiungo l' informazione ad arr_out
             $arr_out["num_all9"] = count($this->db->freeQuery("SELECT id_insert FROM all8registercum" . REFAGEA . " where isload = 0", "getForReport3")) + 1;
         } else
@@ -523,21 +521,23 @@ class block {
 
     function removeBlockSheet($sheetId) {
         //verifico che lo sheedId esista e che sia l' ultimo inserito.
-        
+
         $arr = $this->db->getRow("blocksheet", "MAX(sheetId)");
-        
+
         //$this->logger->rawLog($sheetId);
-        
+
         $arr = $this->db->getRow("blocksheet", "sheetId", array(), array(
             array("ORDERBY", "sheetId"),
             array("ORDER", "DESC"),
-        )); 
-        
+        ));
+
         if (!count($arr) || $arr["sheetId"] != intval($sheetId))
             return 0;    //false sta ad indicare che la cancellazione non è stata effettuata.
 
-        
- 
+
+
+
+            
 //Procedo con la cancellazione:
         $this->db->delete("distributedproduct", array(
             array("where", "sheetId", "=", $sheetId, true)
@@ -609,7 +609,7 @@ class block {
 
         //Adesso prelevo i prodotti distribuiti Banco
 
-        $query4 = "SELECT qty, name_product, measureunity FROM distributedproductbanco" . 
+        $query4 = "SELECT qty, name_product, measureunity FROM distributedproductbanco" .
                 " JOIN productbancoalim ON " .
                 "distributedproductbanco.id_product=" . "productbancoalim.id_product" .
                 " WHERE sheetId=" . $sheetid;
@@ -661,26 +661,26 @@ class block {
         ));
         return $res["nomeComune"];
     }
-    
+
     /**
      * Restituisce il codice consegna da visualizzare
      * @param type $sheetId 
      */
-    public function getSheetCode($sheetId=0){
+    public function getSheetCode($sheetId = 0) {
         /*
-        $res = $this->db->getRows("blocksheet", "sheetId", array(
-            array("where", "YEAR(dtime)", "=", "2016")
-        ));
-        
-        $cnt=1;
-        foreach($res as $key=>$value){
-            $this->db->update("blocksheet", array("cod_cons"=>$cnt++), array(
-                array("where", "sheetId", "=", $value["sheetId"])
-            ));
-        }
-        
-       // $this->logger->rawLog($res);
-        */
+          $res = $this->db->getRows("blocksheet", "sheetId", array(
+          array("where", "YEAR(dtime)", "=", "2016")
+          ));
+
+          $cnt=1;
+          foreach($res as $key=>$value){
+          $this->db->update("blocksheet", array("cod_cons"=>$cnt++), array(
+          array("where", "sheetId", "=", $value["sheetId"])
+          ));
+          }
+
+          // $this->logger->rawLog($res);
+         */
     }
 
 }
