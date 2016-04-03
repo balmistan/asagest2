@@ -110,7 +110,7 @@ class block {
             $this->db->insert($this->bsheet_table, $arr_save);
 
             $sheetId = $this->db->getLastInsertedId();
-/*
+
             $tmp = $this->db->getRow("blocksheet", "MAX(sheetId)", array(
                 array("where", "sheetId", "<", $sheetId, true)
             ));
@@ -122,7 +122,7 @@ class block {
             ));
 
             $this->logger->rawLog($tmp);
-*/
+
             config::setConfig("lastsheetid", $sheetId, "ultimo sheetid (blocchetto consegne) inserito", "internalconfig"); //Questa variabile in caso di cancellazione contiene l' id appena rimosso
         }
 
