@@ -13,7 +13,7 @@ secur::addSlashes($_POST);
 if (!isset($_POST['output']))      //campo firma
     $_POST['output'] = "";
 
-$logger = new logger("../elog/ajax.block.log", 1);
+$logger = new logger("../elog/ajax.block.log", 0);
 
 $logger->rawLog($_POST);
 

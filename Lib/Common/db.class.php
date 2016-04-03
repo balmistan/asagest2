@@ -324,9 +324,7 @@ class db {
             }//close else   
         } //close for
         // eseguo la query	
-        if ($debug)
-        // echo $dbgquery . CRLF;
-            $this->LoggerDebug->rawLog($dbgquery);
+       
         try {
 
             if ($debug)
@@ -657,12 +655,15 @@ class db {
         }
         try{
         $arRow = $objStatement->fetchAll(PDO::FETCH_ASSOC);
+        
+        $this->Logger->rawLog( $arRow);
         }catch (PDOException $e) {
             $this->errorLocation = "db::freeQuery -> " . $e->getLine();
             $this->errorMessage = $dbg_msg . ": " . $e->getMessage();
             $this->Logger->rawLog($this->errorLocation);
             $this->Logger->rawLog($this->errorMessage);
             $this->Logger->rawLog($strQuery);
+             
         $this->Logger->rawLog($dbg_msg);
         }
         return $arRow;

@@ -34,9 +34,10 @@ if (isset($_POST['Salva'])) {
     }
 }
 
+/*
 if (isset($_GET["err"]))
     $page->addCode("<p class=\"red\">Anno di riferimento non valido. Correggere per proseguire!</p>");
-
+*/
 $form = new form("configuration", "POST", "?", $page);
 $configuration = config::getConfig();
 
@@ -45,12 +46,12 @@ $configuration = config::getConfig();
 $form->addText("<p class=\"promem\"> Ricordarsi di salvare, terminate le modifiche</p>","",2);
 
 foreach ($configuration as $confrow) {
-
+/*
     if ($confrow['configName'] == "yearref") {
         $form->addSelectBox_2("yearref", "Blocchetto consegne", $opt['disponibleblocks'], array(), $confrow['configValue'],0);
         continue;
     }
-    
+   */ 
     if ($confrow['configName'] == "progagea") {
         $form->addSelectBox_2("progagea", "Progr. Agea", $opt['progagea'], array(), $confrow['configValue']);
         continue;

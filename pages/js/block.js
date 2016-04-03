@@ -157,7 +157,7 @@ $(document).ready(function () {
  //alert(JSON.stringify(URLToArray($(this).serialize())));
                     //Posso adesso inviare al server
                     var res = send($(this).serialize());      //invio al server
-alert(res);
+//alert(res);
                     $("#sheetId").val(res['sheetId']);
                     $("#debug").html(res['sheetId']);
                     var newsheetid = parseInt(res['sheetId']) + parseInt($("#config_start_blocksheet").val() - 1)

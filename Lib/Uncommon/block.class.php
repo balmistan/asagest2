@@ -16,7 +16,7 @@ class block {
     public function __construct($bancoalim = false) {
         $session = new session();
 
-        $this->logger = new logger("../elog/block.class.log", 1);
+        $this->logger = new logger("../elog/block.class.log", 0);
         if ($bancoalim) {
             $this->distributed_table = "distributedproductbanco";
             $this->product_table = "productbancoalim";
