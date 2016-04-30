@@ -11,23 +11,21 @@ if (!accesslimited::isInAutorizedGroups(user::getUserName($session->getUserId())
 }
 
 
+
+
 /*Recupero la stringa ricevuta in POST.*/
 
-$arr = stripslashes($_POST["str"]);          //str è un array json
+$arr_in = json_decode(file_get_contents('php://input'), true);
 
 $product = new product();
 
-//$logger = new logger("debug_ajaxsortproduct.log");
-
-//$logger->rawLog($arr);
+$product->sortForAllegato8($arr_in);
 
 
-$product->sortForAllegato8(json_decode($arr));
 
+//$logger = new logger("debug_ajaxsortproduct.txt",1);
 
-//$logger = new logger("debug_ajaxsortproduct.txt");
-
-//$logger->rawLog($arr);
+//$logger->rawLog($arr_in);
 
 
 ?>

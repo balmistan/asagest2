@@ -311,12 +311,12 @@ class product {
      * @param type $arr Le chiavi indica la posizione mentre i valori gli id prodotto.
      */
     public function sortForAllegato8($arr) {
-        //$logger=new logger("product.class.log");
+        //$logger=new logger("product.class.log", 1);
         //$logger->rawLog($arr);
         //$this->db->update("product", array("position_in_a8"=>'0'));
-        foreach ($arr as $position => $id) {
-            $this->db->update("product", array("position_in_a8" => $position), array(
-                array("where", "id_product", "=", $id, true)
+        foreach ($arr as $arrval) {
+            $this->db->update("product", array("position_in_a8" => $arrval["pos"]), array(
+                array("where", "id_product", "=", $arrval["id"], true)
             ));
         }
     }

@@ -23,6 +23,9 @@ $page->addStyle("../styles/orizontalmenu/orizontalmenu.css");
 $page->addStyle(UI_STYLE);
 $page->addJS(JQUERY);
 $page->addJS(JQUERY_UI);
+
+
+
 $page->addJS("js/fastsearch.js");
 
 $page->addCode(menu_convert(array("data" => getOrrMenu(), "class" => "admin_menu")));  //eseguo la conversione ad html perchè non sto usando Smarty.
