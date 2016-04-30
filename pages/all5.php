@@ -47,11 +47,11 @@ $arr_products = $alleg->getNameProductForTable();     //ottengo l' elenco prodot
 $product = new product();
 $arr_umis = $product->getProductUMis();
 
-
+/*
   print_r($arr_products);
   echo "<br /><br />";
   print_r($arr_umis);
- 
+ */
 
 $total_num_register = count($arr_products);    //Numero totale di registri  ($arr_products è un array di array. Ogni array indica i prodotti per un singolo registro)
 //echo $total_num_register;
@@ -66,7 +66,7 @@ $template = "../template_xls/".$arr_reg_mapping[$total_num_register - 1]."/templ
 //Creo file excel:
 //echo $template;
 //echo $pagen;
-if (0) {
+if (1) {
     $excel = new excelconvert("../Personal/Documents/Allegato_3.xls", $template);
 
     $excel->setHeader($nome_struttura, "dei prodotti alimentari assegnati ai sensi del Reg. (UE) " . $reg_ue);

@@ -17,8 +17,8 @@
 
         <div class="content">
             <h2>Ordine di visualizzazione in Allegato 5</h2>
-            <p>*Spostare le icone col mouse per cambiare l' ordine di visualizzazione.</p>
-
+            <p>*Spostare le icone col mouse per cambiare l' ordine di visualizzazione e poi salvare.</p>
+           
             <div class="gridster">
                 <ul>
                     {section name=val start=0 loop=count($arrout) step=1}
@@ -29,6 +29,8 @@
 
                                     {if {$arrout[{$smarty.section.val.index}][{$smarty.section.inside.index}]["imagelink"]} != ""}
                                         <img class="photoproduct"  src="../Personal/PhotoProducts/{$arrout[{$smarty.section.val.index}][{$smarty.section.inside.index}]["imagelink"]}" alt="" /><br />
+                                    {else}
+                                    <img class="photoproduct"  src="../styles/page/images/nophoto2.png" alt="" /><br />
                                     {/if}
                                     <span class="product_name">
                                         {$arrout[{$smarty.section.val.index}][{$smarty.section.inside.index}]["product"]}
@@ -58,6 +60,6 @@
         </ul>
             -->
         </div>              
-            <button id="btn">Salva</button>
+        <button id="btn">Salva</button>
     </body>
 </html>
