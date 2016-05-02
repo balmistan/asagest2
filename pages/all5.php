@@ -48,9 +48,12 @@ $product = new product();
 $arr_umis = $product->getProductUMis();
 
 /*
-  print_r($arr_products);
+  foreach ($arr_products as $value) {
+  print_r($value);
   echo "<br /><br />";
-  print_r($arr_umis);
+  }
+  echo "<br /><br />";
+  //  print_r($arr_umis);
  */
 
 $total_num_register = count($arr_products);    //Numero totale di registri  ($arr_products è un array di array. Ogni array indica i prodotti per un singolo registro)
@@ -58,33 +61,37 @@ $total_num_register = count($arr_products);    //Numero totale di registri  ($ar
 //I registri sono mappati:
 //1° registro si chiamerà registro a, il secondo registro b, e così via.
 
-$arr_reg_mapping = array("a", "b", "c", "d", "e", "f");
+$arr_reg_mapping = array("a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o");
 
 //Il template da utilizzare dipende dal numero di registri e dal numero di pagine di ciascun registro.
 //
-$template = "../template_xls/".$arr_reg_mapping[$total_num_register - 1]."/template_" . $arr_reg_mapping[$total_num_register - 1] . $pagen . ".xls";
+$template = "../template_xls/" . $arr_reg_mapping[$total_num_register - 1] . "/template_" . $arr_reg_mapping[$total_num_register - 1] . $pagen . ".xls";
 //Creo file excel:
 //echo $template;
 //echo $pagen;
 if (1) {
-    $excel = new excelconvert("../Personal/Documents/Allegato_3.xls", $template);
-
-    $excel->setHeader($nome_struttura, "dei prodotti alimentari assegnati ai sensi del Reg. (UE) " . $reg_ue);
-
-    $excel->setProductsName($arr_products, $arr_umis);  //Compila righe nomi prodotti di tutte le tabelle
-
+    
+        $excel = new excelconvert("../Personal/Documents/Allegato_3.xls", $template);
+        $excel->setHeader($nome_struttura, "dei prodotti alimentari assegnati ai sensi del Reg. (UE) " . $reg_ue);
+        $excel->setProductsName($arr_products, $arr_umis);  //Compila righe nomi prodotti di tutte le tabelle
+    
     for ($pn = 1; $pn <= $pagen; $pn++) { //leggo i risultati per le varie pagine
         $session->setSessionVar("pagen", $pn);         //IMPORTANTE !  Dopo aver settato la pagina visualizzata, aggiorno la variabile di sessione in modo che la classe allegati legga i dati per la pagina settata.
         $arr_view = $alleg->getRowsView();
         $excel->addPageContent($arr_view, $pn - 1); //L' array parte sempre da 0, solo che in sessione setto 1 per avere la prima pagina (quella con indice 0)
-        // print_r($arr_view[0]);
-        //  echo "<br /><br />"; 
+
+        foreach ($arr_view as $value) {
+            print_r($value);
+            echo "<br /><br />";
+        }
     }
-    if (isset($_GET["dwn"]))
-        $excel->Output("Allegato_5.xls");
-    else {
-        $excel->Save("../Personal/Allegato_5.xlsx");
-    }
+   
+        if (isset($_GET["dwn"]))
+            $excel->Output("Allegato_5.xls");
+        else {
+            $excel->Save("../Personal/Allegato_5.xlsx");
+        }
+   
 }
 
 
