@@ -14,7 +14,7 @@ class excelconvert {
             die("Il file " . $filein . " non esiste!");
         //$this->objPHPExcel = new PHPExcel();
         $this->ArrColumns = array('A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J');
-        $this->FirstRowtables = array(4, 38, 72, 106, 140, 174); //Righe posizioni tabelle excel 
+        $this->FirstRowtables = array(4, 38, 72, 106, 140, 174, 208, 242, 276, 310); //Righe posizioni tabelle excel 
         $this->ProductIds = array();
         $this->objPHPExcel = PHPExcel_IOFactory::createReaderForFile($filein);
         $this->objPHPExcel = $this->objPHPExcel->load($filein); // Template Sheet
