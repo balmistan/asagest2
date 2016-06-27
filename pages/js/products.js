@@ -27,7 +27,7 @@ $(document).ready(function(){
         }
       
         if(nocomplete || !permitted){
-            jAlert('Ci sono campi non compilati o valori non ammessi.');
+            alert('Ci sono campi non compilati o valori non ammessi.');
             return false;
         }else{
             $(".mtf_textfield").removeAttr("disabled");

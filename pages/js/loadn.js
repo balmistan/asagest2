@@ -74,7 +74,7 @@ $(document).ready(function(){
             success: function(resp){ 
             
               /* if(resp<0){          
-                   jAlert("Attenzione!\nSono state già effettuate distribuzioni con data superiore a quella indicata sul carico oppure non sono stati inizializzati i registri al primo utilizzo del software. \nCarico non salvato!");
+                   alert("Attenzione!\nSono state già effettuate distribuzioni con data superiore a quella indicata sul carico oppure non sono stati inizializzati i registri al primo utilizzo del software. \nCarico non salvato!");
                    checkval=false;
                }*/
             }
@@ -89,7 +89,7 @@ $(document).ready(function(){
             if(str.indexOf(",")!=-1 || !IsNumeric(str)) valid=false;
         })
         if(!valid){
-            jAlert("Ci sono campi non validi. Correggere e riprovare!");
+            alert("Ci sono campi non validi. Correggere e riprovare!");
             return false;
         }
         

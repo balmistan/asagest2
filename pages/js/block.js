@@ -8,7 +8,7 @@ $(document).ready(function () {
     var debug = 0;     //solo risposte con errore
     var debug2 = 0;   // risposte anche non di errore
 
-  //  var arr_giacze = getGiacze(); //Prelevo le giacenze Agea dall' allegato 8
+    //  var arr_giacze = getGiacze(); //Prelevo le giacenze Agea dall' allegato 8
 
     var start_qty_agea = getQtyAgea();
 
@@ -67,11 +67,11 @@ $(document).ready(function () {
             var qtyforunity = parseFloat($(this).attr('qtyforunity'), 10);
 
             var qtytot = parseFloat($(".out_qtytot[product_id='" + product_id + "']").val(), 10);
-        /*    if ($(this).parent().parent().hasClass("b_agea")) {
-                var giacza = parseFloat(arr_giacze[product_id], 10);
-                if ((giacza - qtytot - qtyforunity) < 0)
-                    qty_disp = false
-            }*/
+            /*    if ($(this).parent().parent().hasClass("b_agea")) {
+             var giacza = parseFloat(arr_giacze[product_id], 10);
+             if ((giacza - qtytot - qtyforunity) < 0)
+             qty_disp = false
+             }*/
             if (qty_disp || 1) {  //Rimoss test temporaneamente
                 qtytot += parseFloat($(this).attr('qtyforunity'), 10);
                 $(".out_qtytot[product_id='" + product_id + "']").val(qtytot.toFixed(2) * 1);
@@ -95,10 +95,10 @@ $(document).ready(function () {
 
     //salvataggio
     $('#blockform').submit(function (e) {
-        
-       // e.preventDefault();
-        
-       // alert(JSON.stringify(URLToArray($(this).serialize())));
+
+        // e.preventDefault();
+
+        // alert(JSON.stringify(URLToArray($(this).serialize())));
 
         $("#img_wait").show();    //Mostro clessidra
 
@@ -153,8 +153,8 @@ $(document).ready(function () {
                         return false;
                     }
 //alert($(this).serialize())
-                  //  console.log(URLToArray($(this).serialize()));
- //alert(JSON.stringify(URLToArray($(this).serialize())));
+                    //  console.log(URLToArray($(this).serialize()));
+                    //alert(JSON.stringify(URLToArray($(this).serialize())));
                     //Posso adesso inviare al server
                     var res = send($(this).serialize());      //invio al server
 //alert(res);
@@ -189,7 +189,7 @@ $(document).ready(function () {
             $("#img_wait").hide();
             return false;
         }
-e.preventDefault()
+        e.preventDefault()
     });
     $("#sw_agea").click(function () {
         $(this).parent().removeClass("active");
@@ -353,20 +353,18 @@ e.preventDefault()
 
 
     $("#removedistr").click(function () {
-        jConfirm("Proseguire con la cancallazione?", "", function (resp) {
-            if (resp === true) {
-                var res = removeDistr($("#sheetId").val());
+        var resp = confirm("Proseguire con la cancallazione?")
+        if (resp === true) {
+            var res = removeDistr($("#sheetId").val());
 
-                if (res) {
-                    $(".rowp").hide(); //nascondo righe prodotti 
-                    alert("Distribuzione cancellata!", "Esito OK", function () {
-                        location.reload();
-                    });
-
-                }
+            if (res) {
+                $(".rowp").hide(); //nascondo righe prodotti 
+                alert("Distribuzione cancellata!");
+                location.reload();
             }
+        }
         });
-    });
+   
 
     $("body").css("opacity", 1);
 
@@ -404,7 +402,7 @@ e.preventDefault()
 
         var i = 0;
         while (i < pairs.length) {
-           // alert(JSON.stringify(pairs[i]))
+            // alert(JSON.stringify(pairs[i]))
             var pair_a = pairs[i].split('=');
             if (pair_a[0] == "product_id[]") {
                 var pair_b = pairs[i + 1].split('=');

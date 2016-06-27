@@ -30,24 +30,24 @@ $(document).ready(function () {
 
 
     $("#Rimuovi").live("click", function () {
-        jConfirm("Si sta per rimuovere il carico del " + $("#date").val() + "\n Proseguire?", "ATTENZIONE!", function (r) {
-            if (r) {
+        var r = confirm("Si sta per rimuovere il carico del " + $("#date").val() + "\n Proseguire?");
+        if (r) {
 
-                $.ajax({
-                    type: 'POST',
-                    url: "../Ajax/ajax_loadremove.php",
-                    data: {
-                        idload: $("#insert_id").val()
-                    },
-                    success: function (resp) {
+            $.ajax({
+                type: 'POST',
+                url: "../Ajax/ajax_loadremove.php",
+                data: {
+                    idload: $("#insert_id").val()
+                },
+                success: function (resp) {
 
-                        $(location).attr('href', 'load');
-                    }
-                });
+                    $(location).attr('href', 'load');
+                }
+            });
 
-            }
-        })
-    })
+        }
+    });
+
 
 
 
@@ -93,27 +93,27 @@ $(document).ready(function () {
 
         var checkval = true;
         //blocco il submit se la data con cui si sta salvando è inferiore a l' ultima inserita sui registri (solo se non si tratta di modifica)
-  /*      if ($("#insert_id").val() == "") { //Se si tratta di nuovo salvataggio, non di modifica
-
-            $.ajax({
-                type: 'POST',
-                url: "../Ajax/ajax_allegaticheck.php",
-                async: false,
-                data: {
-                    'checktype': 'check_date',
-                    'datecheck': $("#date").val()
-                },
-                success: function (resp) {
-
-                    if (resp < 0) {
-                        e.preventDefault();
-                        jAlert("Non è possibile salvare in quanto sono state già effettuate operazioni con data superiore a quella indicata sul carico.", "ATTENZIONE!");    
-                    }
-
-                }
-            });
-        }
-*/
+        /*      if ($("#insert_id").val() == "") { //Se si tratta di nuovo salvataggio, non di modifica
+         
+         $.ajax({
+         type: 'POST',
+         url: "../Ajax/ajax_allegaticheck.php",
+         async: false,
+         data: {
+         'checktype': 'check_date',
+         'datecheck': $("#date").val()
+         },
+         success: function (resp) {
+         
+         if (resp < 0) {
+         e.preventDefault();
+         alert("Non è possibile salvare in quanto sono state già effettuate operazioni con data superiore a quella indicata sul carico.", "ATTENZIONE!");    
+         }
+         
+         }
+         });
+         }
+         */
         if (!checkval)
             return false;
 
@@ -124,7 +124,7 @@ $(document).ready(function () {
                 valid = false;
         })
         if (!valid) {
-            jAlert("Ci sono campi non validi. Correggere e riprovare!");
+            alert("Ci sono campi non validi. Correggere e riprovare!");
             return false;
         }
 

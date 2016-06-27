@@ -31,7 +31,6 @@ $arr_style_config[] = UI_STYLE;
 $arr_style_config[] = "../styles/page/page.css";
 $arr_style_config[] = "../styles/orizontalmenu/orizontalmenu.css";
 //$arr_style_config[] = "../styles/page/jquery.multiselect.css";
-$arr_style_config[] = JQALERT . "/jquery.alerts.css";
 $arr_style_config[] = "../styles/products/products.css";
 
 if (!$is_mobile)
@@ -39,7 +38,6 @@ if (!$is_mobile)
 
 $arr_js_config[] = JQUERY;
 $arr_js_config[] = JQUERY_UI;
-$arr_js_config[] = JQALERT . "/jquery.alerts.js";
 $arr_js_config[] = "js/fastsearch.js";
 $arr_js_config[] = "js/products.js";
 if (!$is_mobile) {

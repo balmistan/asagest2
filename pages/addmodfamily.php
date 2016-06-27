@@ -31,7 +31,6 @@ $is_mobile = strpos($_SERVER['HTTP_USER_AGENT'], 'Mobile');
 
 
 $page->addStyle("../styles/orizontalmenu/orizontalmenu.css");
-$page->addStyle(JQALERT . "/jquery.alerts.css");
 
 $page->addJS(JQUERY);
 $page->addJS(JQUERY_UI);
@@ -45,7 +44,6 @@ if (!$is_mobile) {
     $page->addJS("../Plugin/jcrop/js/jquery.Jcrop.min.js");
     $page->addJS("js/mywebcam.js");
 }
-$page->addJS(JQALERT . "/jquery.alerts.js");
 
 $page->addJS("js/addmodfamily.js");
 

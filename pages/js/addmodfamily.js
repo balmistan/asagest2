@@ -2,7 +2,7 @@ $(function() {
     $(".mtf_textfield").live("keydown", function(e) {
         var code = (e.keyCode ? e.keyCode : e.which)
         if (code == 220) {  //tasto \
-            jAlert("Carattere non ammesso!");
+            alert("Carattere non ammesso!");
             e.preventDefault();
             e.stopPropagation();
         }
@@ -36,7 +36,7 @@ $(function() {
         $(".lastname_tbox").each(function() {
 
             if ($(this).val() == "") {
-                jAlert('Campi cognome non compilati.');
+                alert('Campi cognome non compilati.');
                 //alert("Attenzione! Campi cognome non compilati.");
                 valid = false;
                 return false;        // esce semplicemente dall' each
@@ -49,7 +49,7 @@ $(function() {
             rr_checked++;
         });
         if (!rr_checked) {
-            jAlert('Attenzione! Selezionare flag in corrispondenza della persona che viene a ritirare');
+            alert('Attenzione! Selezionare flag in corrispondenza della persona che viene a ritirare');
             valid = false;
         }
 
@@ -66,7 +66,7 @@ $(function() {
 
                     if (!validate_cf(cf)) {
                         $(this).addClass("textboxerror");
-                        jAlert('Codice fiscale non corretto!');
+                        alert('Codice fiscale non corretto!');
                         //alert("Attenzione! Errore codice fiscale.");
                         valid = false;
                         return false;
@@ -85,11 +85,11 @@ $(function() {
                                 var arr = JSON.parse(data);
                                 if (arr["familyid"] != 0) {
                                     valid = false;
-                                    jAlert('Il codice fiscale: ' + cf + ' risulta presente nella scheda numero ' + arr["familyid"])
+                                    alert('Il codice fiscale: ' + cf + ' risulta presente nella scheda numero ' + arr["familyid"])
                                 }
                             },
                             error: function(xhr, err) {
-                                //jAlert(err + ": " + xhr.status, 'Errore!');
+                                //alert(err + ": " + xhr.status, 'Errore!');
                             }
                         }); //close $.ajax
                     }//close else
@@ -106,7 +106,7 @@ $(function() {
 
                 if ($(this).val() != "" && !validate_borndate($(this))) {
                     $(this).addClass("textboxerror");
-                    jAlert(ErrMsg, 'Errore!');
+                    alert('Errore!');
                     valid = false;
                     return false;
                 }

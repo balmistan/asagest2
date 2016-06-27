@@ -104,7 +104,6 @@ $arr_style_config[] = "../bootstrapn/css/bootstrap.min.css";
 $arr_style_config[] = "../styles/page/page.css";
 //$arr_style_config[] = "../Plugin/signature-pad/build/jquery.signaturepad.min.css";
 $arr_style_config[] = "../styles/orizontalmenu/orizontalmenu.css";
-$arr_style_config[] = JQALERT . "/jquery.alerts.css";
 $arr_style_config[] = "../styles/test/test.css";
 
 $arr_js_config[] = "../js/jquery-1.11.1.min.js";
@@ -113,7 +112,6 @@ $arr_js_config[] = JQPLUGINS . "/datepicker/ui.datepicker-it.js";
 //$arr_js_config[] = "../Plugin/signature-pad/jquery.signaturepad.js";
 $arr_js_config[] = "../bootstrapn/js/bootstrap.min.js";
 $arr_js_config[] = "js/fastsearch.js";
-$arr_js_config[] = JQALERT . "/jquery.alerts.js";
 $arr_js_config[] = "js/block.js";
 //$arr_js_config[] = "../Plugin/signature-pad/build/json2.min.js";
 $menu = getOrrMenu();

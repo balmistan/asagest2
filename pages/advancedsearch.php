@@ -27,7 +27,7 @@ $arr_style_config[] = "../styles/page/page.css";
 //$arr_style_config[] = "../styles/page/TableTools_JUI.css";
 $arr_style_config[] = "../styles/orizontalmenu/orizontalmenu.css";
 $arr_style_config[] = "../styles/page/jquery.multiselect.css";
-$arr_style_config[] = JQALERT . "/jquery.alerts.css";
+
 
 $arr_style_config[] = "../styles/advancedsearch/advancedsearch.css";
 
@@ -37,7 +37,7 @@ $arr_js_config[] = JQTABLES . "/media/js/jquery.dataTables.min.js";
 $arr_js_config[] = JQPLUGINS . "/datatable/ZeroClipboard.js";
 $arr_js_config[] = JQTABLES . "/extensions/TableTools/js/dataTables.tableTools.min.js";
 $arr_js_config[] = JQPLUGINS . "/datatable/jqDataTableSingleRowSelect.js";
-$arr_js_config[] = JQALERT . "/jquery.alerts.js";
+
 $arr_js_config[] = "js/jquery.multiselect.min.js";
 $arr_js_config[] = "js/fastsearch.js";
 $arr_js_config[] = "js/advancedsearch.js";

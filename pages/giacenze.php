@@ -17,13 +17,11 @@ $arr_style_config = array();
 $arr_js_config = array();
 
 $arr_style_config[] = UI_STYLE;
-$arr_style_config[] = JQALERT . "/jquery.alerts.css";
 $arr_style_config[] = "../styles/orizontalmenu/orizontalmenu.css";
 $arr_style_config[] = "../styles/page/page.css";
 $arr_style_config[] = "../styles/giacenze/giacenze.css";
 
 $arr_js_config[] = JQUERY;
-$arr_js_config[] = JQALERT . "/jquery.alerts.js";
 $arr_js_config[] = "js/fastsearch.js";
 $arr_js_config[] = "js/giacenze.js";
 

@@ -29,16 +29,11 @@ $arr_js_config = array();
 $arr_style_config[] = "../styles/page/page.css";
 //$arr_style_config[] = UI_STYLE;
 $arr_style_config[] = "../styles/orizontalmenu/orizontalmenu.css";
-$arr_style_config[] = JQALERT . "/jquery.alerts.css";
 $arr_style_config[] = "../styles/viewfamily/viewfamily.css";
 
 $arr_js_config[] = JQUERYNEW;
 $arr_js_config[] = "../Lib/Common/js/cf_handle.js";
-
-
 $arr_js_config[] = "../Lib/Common/js/utility.js";
-
-$arr_js_config[] = JQALERT . "/jquery.alerts.js";
 $arr_js_config[] = "js/fastsearch.js";
 $arr_js_config[] = "js/viewfamily.js";
 

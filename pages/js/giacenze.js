@@ -17,7 +17,7 @@ $(document).ready(function(){
             if(str.indexOf(",")!=-1 || !IsNumeric(str)) valid=false;
         })
         if(!valid){
-            jAlert("Valore inserito non valido!");
+            alert("Valore inserito non valido!");
         }
     });
     
