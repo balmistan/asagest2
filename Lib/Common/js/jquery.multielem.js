@@ -145,16 +145,16 @@ $.extend(MyWidget.prototype, {
  
     listen: function(obj){
 
-        $(".btnremove").live("click",function(){ 
+        $("tr").on("click",".btnremove", function(){ 
             if(!$(this).hasClass("inactive"))
                 obj.remRow($(this).parent().attr("id"));
         });
   
-        $(".btnup").live("click",function(){
+        $("tr").on("click",".btnup",function(){
             obj.addRowUp($(this).parent().attr("id"));
         });
   
-        $(".btndown").live("click",function(){
+        $("tr").on("click",".btndown",function(){
             obj.addRowDown($(this).parent().attr("id"),"[]");
         });
         

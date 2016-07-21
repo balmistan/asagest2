@@ -1,4 +1,4 @@
-$(function() {
+/*$(function() {
     $(".mtf_textfield").live("keydown", function(e) {
         var code = (e.keyCode ? e.keyCode : e.which)
         if (code == 220) {  //tasto \
@@ -8,7 +8,7 @@ $(function() {
         }
     });
 });
-
+*/
 
 /////// FUNZIONI DI VALIDAZIONE /////////
 

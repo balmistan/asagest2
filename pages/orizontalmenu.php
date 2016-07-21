@@ -23,29 +23,31 @@ function getOrrMenu() {         //crea il codice html del menù
 
         $menu->addItem(array('Text' => 'Agg. scheda', 'Link' => 'addmodfamily', 'Class' => 'add', 'Index' => '4'));
         
-        $menu->addItem(array('Text' => 'Configurazioni', 'Link' => '#', 'Class' => 'settings', 'Index' => '5'));
-        $menu->addItem(array('Text' => 'Sistema', 'Link' => 'settings', 'Class' => 'system', 'Index' => '5.1'));
-        $menu->addItem(array('Text' => 'Prodotti Agea', 'Link' => 'products', 'Class' => 'products', 'Index' => '5.2'));
-        $menu->addItem(array('Text' => 'Prodotti Donaz.', 'Link' => 'bproducts', 'Class' => 'products', 'Index' => '5.3'));
-        $menu->addItem(array('Text' => 'Ordine Visualizzazione', 'Link' => 'sortproducts', 'Class' => 'products', 'Index' => '5.4'));
-        $menu->addItem(array('Text' => 'Info Allegati', 'Link' => 'info_all', 'Class' => '', 'Index' => '5.5'));
+        $menu->addItem(array('Text' => 'Altro', 'Link' => '#', 'Class' => 'settings', 'Index' => '5'));
+        $menu->addItem(array('Text' => 'Configurazioni', 'Link' => '#', 'Class' => 'settings', 'Index' => '5.1'));
         
+        $menu->addItem(array('Text' => 'Sistema', 'Link' => 'settings', 'Class' => 'system', 'Index' => '5.1.1'));
+        $menu->addItem(array('Text' => 'Prodotti Agea', 'Link' => 'products', 'Class' => 'products', 'Index' => '5.1.2'));
+        $menu->addItem(array('Text' => 'Prodotti Donaz.', 'Link' => 'bproducts', 'Class' => 'products', 'Index' => '5.1.3'));
+        $menu->addItem(array('Text' => 'Ordine Visualizzazione', 'Link' => 'sortproducts', 'Class' => 'products', 'Index' => '5.1.4'));
+        $menu->addItem(array('Text' => 'Info Allegati', 'Link' => 'info_all', 'Class' => '', 'Index' => '5.1.5'));
         
     
-        $menu->addItem(array('Text' => 'Account', 'Link' => '#', 'Class' => 'account', 'Index' => '5.6'));
-        $menu->addItem(array('Text' => 'Nuovo Account', 'Link' => 'useradd', 'Class' => 'newaccount', 'Index' => '5.6.1'));
-        $menu->addItem(array('Text' => 'Account volontari', 'Link' => 'userlist', 'Class' => 'viewmod', 'Index' => '5.6.2'));
-        $menu->addItem(array('Text' => 'Mia password', 'Link' => 'changepwd', 'Class' => 'changepwd', 'Index' => '5.6.3'));
-        $menu->addItem(array('Text' => 'Miei dati personali', 'Link' => 'mypersonaldata', 'Class' => 'mydata', 'Index' => '5.6.4'));
-
-        $menu->addItem(array('Text' => 'Altro', 'Link' => '#', 'Class' => 'other', 'Index' => '6')); 
-        $menu->addItem(array('Text' => 'Cerca persone', 'Link' => 'advancedsearch', 'Class' => 'advancedsearch', 'Index' => '6.1'));
+        $menu->addItem(array('Text' => 'Account', 'Link' => '#', 'Class' => 'account', 'Index' => '5.2'));
+        $menu->addItem(array('Text' => 'Nuovo Account', 'Link' => 'useradd', 'Class' => 'newaccount', 'Index' => '5.2.1'));
+        $menu->addItem(array('Text' => 'Account volontari', 'Link' => 'userlist', 'Class' => 'viewmod', 'Index' => '5.2.2'));
+        $menu->addItem(array('Text' => 'Mia password', 'Link' => 'changepwd', 'Class' => 'changepwd', 'Index' => '5.2.3'));
+        $menu->addItem(array('Text' => 'Miei dati personali', 'Link' => 'mypersonaldata', 'Class' => 'mydata', 'Index' => '5.2.4'));
         
-        $menu->addItem(array('Text' => 'Certif. scaduti', 'Link' => 'expiredisee', 'Class' => 'expiredisee', 'Index' => '6.2'));
-        $menu->addItem(array('Text' => 'Guida', 'Link' => 'manuale/pagine/index', 'Class' => 'manuale/pagine', 'Index' => '6.3'));
-        $menu->addItem(array('Text' => 'Backup', 'Link' => 'backup', 'Class' => 'backup', 'Index' => '6.4'));
+
+        $menu->addItem(array('Text' => 'Ric. Avanzata', 'Link' => '#', 'Class' => 'other', 'Index' => '5.3')); 
+        $menu->addItem(array('Text' => 'Cerca persone', 'Link' => 'advancedsearch', 'Class' => 'advancedsearch', 'Index' => '5.3.1'));  
+        $menu->addItem(array('Text' => 'Certif. scaduti', 'Link' => 'expiredisee', 'Class' => 'expiredisee', 'Index' => '5.3.2'));
+        
+        $menu->addItem(array('Text' => 'Guida', 'Link' => 'manuale/pagine/index', 'Class' => 'manuale/pagine', 'Index' => '5.4'));
+        $menu->addItem(array('Text' => 'Backup', 'Link' => 'backup', 'Class' => 'backup', 'Index' => '5.5'));
    
-        $menu->addItem(array('Text' => 'Logout', 'Link' => 'logout', 'Class' => 'logout', 'Index' => '7'));
+        $menu->addItem(array('Text' => 'Logout', 'Link' => 'logout', 'Class' => 'logout', 'Index' => '6'));
         
         
         
@@ -71,13 +73,13 @@ function getOrrMenu() {         //crea il codice html del menù
         $menu->addItem(array('Text' => 'Mia password', 'Link' => 'changepwd', 'Class' => 'changepwd', 'Index' => '5.1'));
         $menu->addItem(array('Text' => 'Miei dati personali', 'Link' => 'mypersonaldata', 'Class' => 'mydata', 'Index' => '5.2'));
 
-        $menu->addItem(array('Text' => 'Altro', 'Link' => '#', 'Class' => 'other', 'Index' => '6')); 
-        $menu->addItem(array('Text' => 'Cerca persone', 'Link' => 'advancedsearch', 'Class' => 'advancedsearch', 'Index' => '6.1'));
+        $menu->addItem(array('Text' => 'Altro', 'Link' => '#', 'Class' => 'other', 'Index' => '5.3')); 
+        $menu->addItem(array('Text' => 'Cerca persone', 'Link' => 'advancedsearch', 'Class' => 'advancedsearch', 'Index' => '5.3.1'));
         
-        $menu->addItem(array('Text' => 'Certif. scaduti', 'Link' => 'expiredisee', 'Class' => 'expiredisee', 'Index' => '6.2'));
-        $menu->addItem(array('Text' => 'Guida', 'Link' => 'manuale/pagine/index', 'Class' => 'manuale', 'Index' => '6.3'));
+        $menu->addItem(array('Text' => 'Certif. scaduti', 'Link' => 'expiredisee', 'Class' => 'expiredisee', 'Index' => '5.3.2'));
+        $menu->addItem(array('Text' => 'Guida', 'Link' => 'manuale/pagine/index', 'Class' => 'manuale', 'Index' => '5.3.3'));
         
-        $menu->addItem(array('Text' => 'Logout', 'Link' => 'logout', 'Class' => 'logout', 'Index' => '7'));
+        $menu->addItem(array('Text' => 'Logout', 'Link' => 'logout', 'Class' => 'logout', 'Index' => '6'));
         
         
     }

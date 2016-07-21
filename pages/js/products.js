@@ -45,10 +45,13 @@ $(document).ready(function(){
           $(".rr_check2").parent().html("")
         }
     })
-    
-    $(".rem").live("click", function(){
-        $(this).parent().parent().remove();
+   
+    $("document").on("click", ".rem", function(){
+        alert("")
+      //  $(this).parent().parent().remove();
     });
+    
+   
         
     var arr_options = JSON.parse($("#encodedoptions").val());
     
@@ -87,7 +90,7 @@ $(document).ready(function(){
     '</center>'+
     '</td>'+
     '<td>'+
-    '<br /><input type="button" class="rem" value="X" />'+
+    '<input type="button" class="rem" value="X" title="Rimuove riga" />'+
     '</td>'+
     '</tr>';
  
@@ -96,15 +99,15 @@ $(document).ready(function(){
         $("#refdiv").parent().parent().before(code);
     }
     
-    $.mywebcam({
+/*    $.mywebcam({
         'save_folder': '../Personal/PhotoProducts', 
         'nophoto':  $('#nophoto').val(),
         'title': 'Foto al prodotto'
     });
-    
+ */   
     //checkbox vis. bl.
     
-    $(".rr_check").live("click", function(){
+    $("tr").on("click",".rr_check", function(){
         if($(this).is(":checked"))
             $(this).parent().find(".rr").val("on")
         else
@@ -113,7 +116,7 @@ $(document).ready(function(){
     
     //checkbox vis. reg.
     
-    $(".rr_check2").live("click", function(){
+    $("tr").on("click",".rr_check2", function(){
         if($(this).is(":checked"))
             $(this).parent().find(".rr2").val("on")
         else

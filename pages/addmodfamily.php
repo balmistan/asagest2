@@ -222,17 +222,17 @@ $myjquery->addJQueryPlugin("
 
  }); //close $(\".cf_tbox\").each(function()
 
-$(\".cf_tbox\").live(\"focusout\", function(){
+$(\"tr\").on(\"focusout\", \".cf_tbox\",function(){
      $(this).val($(this).val().toUpperCase())
  });
  
- $(\".cf_tbox\").live(\"keyup\", function(){
+ $(\"tr\").on(\"keyup\", \".cf_tbox\", function(){
      cf_handle($(this))
- }); //close $(\".cf_tbox\").live(\"keyup\", function()
+ }); //close 
  
- $(\".cf_tbox\").live(\"blur\", function(){
+ $(\"tr\").on(\"blur\", \".cf_tbox\",function(){
      cf_handle($(this))
- }); //close $(\".cf_tbox\").live(\"blur\", function()
+ }); //close 
  
  
  function cf_handle(obj){

@@ -16,10 +16,22 @@ body{
     text-align: center;
     font-family: tahoma, Verdana, Helvetica, Arial, sans-serif;
     /*background-color: #fff;*/
-    background: url('images/d356.gif');
+    background: url('images/d356.gif') no-repeat center center fixed; 
+-webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
     color: #444;
     font-size: 75%;
 }
+
+table{
+-moz-border-radius: 8px;
+border-radius: 8px;
+opacity:0.9;
+
+} 
+
 
 .sheet_title{padding-top:5px; padding-left:50px; height:50px; font-weight:bold; font-size:1.2em;}
 .space_50{height:50px;}

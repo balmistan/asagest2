@@ -1,4 +1,7 @@
 /*Filtro ricerca*/
+body{
+overflow-y: hidden;
+}
 #tablesearch{margin-top:30px;}
 .radiobtn{padding-left:20px;}
 #tablesearch{width:100%; margin-bottom:0;}

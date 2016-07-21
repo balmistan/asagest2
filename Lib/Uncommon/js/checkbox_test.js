@@ -3,7 +3,7 @@
 
 $(function () {
     
-    $(".rr_check").live("click", function(){
+    $("tr").on("click", ".rr_check", function(){
         
     var strchecked = 'off';
     if($(this).is(':checked')) strchecked = 'on';

@@ -197,7 +197,7 @@ jQuery.mywebcam = function(options) {
         });
     }
                 
-    $(".photodiv").live("click", function(){
+    $("tr").on("click",".photodiv",function(){
         obj_thumb=$(this).find('img');     //l' oggetto icona su cui ho effettuato il click.
         image_url=$(this).attr('src');       
         obj_thumb_link=$(this).parent().find('.hfield_imglink');
@@ -226,7 +226,7 @@ jQuery.mywebcam = function(options) {
     }  
     
     
-    $(".ui-widget-overlay").live("click", function() { 
+    $("div").on("click", ".ui-widget-overlay",function() { 
         $("#out").dialog("close"); } );
     
     

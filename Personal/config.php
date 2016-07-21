@@ -50,14 +50,18 @@ define("LOGIN",$path."pages/index.php");
 define("JQTABLES","../Plugin/DataTables-1.10.7");
 define("JQALERT",$path."Plugin/jquery.alerts-1.1");
 
-define("JQUERY",$path."js/jquery-1.7.2.min.js");
+
 define("JQUERYNEW",$path."js/jquery-1.11.1.min.js");
-define("JQUERY_UI",$path."js/jquery-ui-1.8.20.custom.min.js");  
-define("JQUERY_UINEW","../Plugin/jquery-ui-1.11.4.custom/jquery-ui.min.js");
+define("JQUERY",JQUERYNEW);
+
+ 
+define("JQUERY_UINEW","../Plugin/jquery-ui-1.12.0/jquery-ui.min.js");
+define("JQUERY_UI",JQUERY_UINEW); 
 
 //define("UI_STYLE",LIBSSDIR.LIBNAME."/css/ui-lightness/jquery-ui.css");
-define("UI_STYLE",LIBSSDIR.LIBNAME."/css/flick/jquery-ui.css");
-define("UI_STYLENEW","../Plugin/jquery-ui-1.11.4.custom/jquery-ui.min.css");
+//define("UI_STYLE",LIBSSDIR.LIBNAME."/css/flick/jquery-ui.css");
+define("UI_STYLENEW","../Plugin/jquery-ui-1.12.0/jquery-ui.min.css");
+define("UI_STYLE",UI_STYLENEW);
 
 define("SHORTCUTICON",$path."styles/page/images/cri.png");
 
