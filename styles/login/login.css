@@ -1,6 +1,10 @@
 .sheet{margin: 0 auto;  margin-top:10px; padding:30px 30px 10px 0; text-align: center; width:35%;
+background-color:white;
+opacity: 0.7;
+-moz-border-radius: 8px;
+border-radius: 8px;
 /*background: url('../page/images/background_sheet.png') repeat;*/
-background: url('../login/images/abstract.jpg') no-repeat; background-position:top right;
+/*background: url('../login/images/abstract.jpg') no-repeat; background-position:top right; */
 }
 
 ul{margin: 0 auto; width:75%; }
