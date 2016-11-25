@@ -665,24 +665,37 @@ class block {
     /**
      * Restituisce il codice consegna da visualizzare
      * @param type $sheetId 
+     * @param type bool $complete (It indicates whether even return the 'year)
      */
-    public function getSheetCode($sheetId = 0) {
-        /*
-          $res = $this->db->getRows("blocksheet", "sheetId", array(
-          array("where", "YEAR(dtime)", "=", "2016")
+    public function getSheetCode($sheetId = 0, $complete=false) {
+        
+          $year = "";
+          $numsheet = "";
+        
+          $res = $this->db->getRow("blocksheet", "YEAR(dtime)", array(
+          array("where", "sheetId", "=", $sheetId, true)
           ));
-
-          $cnt=1;
-          foreach($res as $key=>$value){
-          $this->db->update("blocksheet", array("cod_cons"=>$cnt++), array(
-          array("where", "sheetId", "=", $value["sheetId"])
+          
+          
+          if(count($res)){
+              
+          $year = $res["YEAR(dtime)"];
+          
+          $res = $this->db->getRow("blocksheet", "COUNT(sheetId)", array(
+              array("where", "sheetId", "<=", $sheetId, true),
+              array("and", "YEAR(dtime)", "like", $year)
           ));
+          
+           $numsheet = $res["COUNT(sheetId)"];
+           
           }
+          
+          $retval = $complete==true ? $numsheet . " / " . $year : $numsheet;
+          
+          return $retval;
 
-          // $this->logger->rawLog($res);
-         */
     }
-
+    
 }
 
 //class close
