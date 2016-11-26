@@ -596,9 +596,15 @@ class allegatin {
 
         $date = $this->convertData($date);
 
-        $arr_date = $this->db->getRow("all8registercum" . REFAGEA, "date", array(
+        /*$arr_date = $this->db->getRow("all8registercum" . REFAGEA, "date", array(
             array("where", "date", ">", $date)
+        ));*/
+        
+        $arr_date = $this->db->getRow("blocksheet", "dtime", array(
+            array("where", "DATE(dtime)", ">", $date)
         ));
+        
+        //return json_encode($arr_date);
 
         if (count($arr_date) == 0)
             return 0;

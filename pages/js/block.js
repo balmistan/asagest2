@@ -112,14 +112,14 @@ $(document).ready(function () {
             }
 
             var date = $("#date").val();
-            if (date === undefined) {
+         /*   if (date === undefined) {
                 var now = new Date();
                 var day = ((now.getDate() < 10) ? "0" : "") + now.getDate();
                 var mounth = (((1 + now.getMonth()) < 10) ? "0" : "") + (1 + now.getMonth());
                 var year = ((now.getYear() < 1000) ? (1900 + now.getYear()) : now.getYear());
                 date = day + "/" + mounth + "/" + year;
             }
-
+*/
             var result_check = check("check_date", date);
 
             if (result_check == -5) {
@@ -316,10 +316,10 @@ $(document).ready(function () {
 
     var date = getSetConfig('get_config', 'default_date_blocksheet');
     var arr_date = date.split("/");
-
-    $("#date").datepicker({
+    $("#date").val(arr_date[0] + "/" + arr_date[1] + "/" + arr_date[2])
+    .datepicker({
         //'maxDate': 0,
-        'defaultDate': new Date(arr_date[2], arr_date[1] - 1, arr_date[0]),
+    //    'defaultDate': new Date(arr_date[2], arr_date[1] - 1, arr_date[0]),
         onSelect: function (dateText, inst) {
             getSetConfig('set_config', 'default_date_blocksheet', dateText);
         }
