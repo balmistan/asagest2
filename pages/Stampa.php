@@ -28,9 +28,13 @@ if (isset($_GET["id"])) {
 
     $pdf->Body();
 
-    $fname = "foglio_".$pdf->getViewSheetId() .".pdf";
+    //$fname = "foglio_".$pdf->getViewSheetId() .".pdf";
+    
+    $fname = "foglio.pdf";
 
     $pdf->Output($fname, "I");
+    //$pdf->Output($fname, "F");
+   //$pdf->Output($fname);
 
 }
 ?>

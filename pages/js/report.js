@@ -108,7 +108,7 @@ $(document).ready(function () {
                         "sTitle": "Data"
                     },
                     {
-                        "sTitle": "Cod. consegna",
+                        "sTitle": "[N° Progressivo]",
                         "sClass": "sheetid"
                     },
                     {

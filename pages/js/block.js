@@ -29,10 +29,19 @@ $(document).ready(function () {
             $("#removedistr").show();
         }
     }
+    
+  $("#print").click(function(){
+      myprint();
+  })
+  
 
-    $("#print").bind("click", "", function () {  //intercetto click su link stampa     
-        window.open("Stampa?id=" + $("#sheetId").val());
-    });
+     function myprint () {  //intercetto click su link stampa     
+       var opn = window.opener.location = "Stampa?id=" + $("#sheetId").val();
+       if(opn){
+           opn.print();
+       }
+    }
+
 
     ///////////////  Codice per impedire modifiche //////////////////
     if ($("#sheetId").val() != "" && !modifiable) {
@@ -112,14 +121,14 @@ $(document).ready(function () {
             }
 
             var date = $("#date").val();
-         /*   if (date === undefined) {
-                var now = new Date();
-                var day = ((now.getDate() < 10) ? "0" : "") + now.getDate();
-                var mounth = (((1 + now.getMonth()) < 10) ? "0" : "") + (1 + now.getMonth());
-                var year = ((now.getYear() < 1000) ? (1900 + now.getYear()) : now.getYear());
-                date = day + "/" + mounth + "/" + year;
-            }
-*/
+            /*   if (date === undefined) {
+             var now = new Date();
+             var day = ((now.getDate() < 10) ? "0" : "") + now.getDate();
+             var mounth = (((1 + now.getMonth()) < 10) ? "0" : "") + (1 + now.getMonth());
+             var year = ((now.getYear() < 1000) ? (1900 + now.getYear()) : now.getYear());
+             date = day + "/" + mounth + "/" + year;
+             }
+             */
             var result_check = check("check_date", date);
 
             if (result_check == -5) {
@@ -157,11 +166,10 @@ $(document).ready(function () {
                     //alert(JSON.stringify(URLToArray($(this).serialize())));
                     //Posso adesso inviare al server
                     var res = send($(this).serialize());      //invio al server
-//alert(res);
-                    $("#sheetId").val(res['sheetId']);
-                    $("#debug").html(res['sheetId']);
-                    var newsheetid = parseInt(res['sheetId']) + parseInt($("#config_start_blocksheet").val() - 1)
-                    $("#otherinfo").html("[" + newsheetid + "]");
+                  
+                    $("#sheetId").val(sheetId);
+                    $("#numrec").html(res['numrec']);
+                    $("#otherinfo").html("[" + res['sheetId'] + "]");
 
                     if (res['xxx'] != undefined) {
                         $("#otherinfo").append("&nbsp;&nbsp;&nbsp;" + res['xxx']['date']);
@@ -183,6 +191,7 @@ $(document).ready(function () {
                     $("#saved_msg").show();
                     $("#saved_msg").css("visibility", "visible").fadeIn().fadeOut(5000);
                     $("#print").show();
+                   
 
                 }//close else
             }//close if(save_enabled)
@@ -317,13 +326,13 @@ $(document).ready(function () {
     var date = getSetConfig('get_config', 'default_date_blocksheet');
     var arr_date = date.split("/");
     $("#date").val(arr_date[0] + "/" + arr_date[1] + "/" + arr_date[2])
-    .datepicker({
-        //'maxDate': 0,
-    //    'defaultDate': new Date(arr_date[2], arr_date[1] - 1, arr_date[0]),
-        onSelect: function (dateText, inst) {
-            getSetConfig('set_config', 'default_date_blocksheet', dateText);
-        }
-    });
+            .datepicker({
+                //'maxDate': 0,
+                //    'defaultDate': new Date(arr_date[2], arr_date[1] - 1, arr_date[0]),
+                onSelect: function (dateText, inst) {
+                    getSetConfig('set_config', 'default_date_blocksheet', dateText);
+                }
+            });
 
     function init_scroll() {
 
@@ -363,8 +372,8 @@ $(document).ready(function () {
                 location.reload();
             }
         }
-        });
-   
+    });
+
 
     $("body").css("opacity", 1);
 

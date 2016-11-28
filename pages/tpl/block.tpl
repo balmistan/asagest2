@@ -91,6 +91,7 @@
                             <table class="tableout tout_agea" cellpadding=0 cellspacing=0>
                                 <tbody>
                                     <tr><td colspan=4 id="numb">Scheda n° {$family_id}<input type="hidden" id="num_scheda" value="{$family_id}" /></td></tr>
+                                    <tr><td>Ric. N° <span id="numrec">{$numrec}</span></td></tr>
                                     <tr><td colspan=4 id="otherinfo">{$otherinfo}</td></tr>
                                     <tr><td colspan=4 id="person_name">Spett.le {$person_name}</td></tr>
                                     <tr><td colspan=4 id="address">{$address}</td></tr>
@@ -131,7 +132,7 @@
 
                                         <input type="hidden" name="person_id" value="{$person_id}" />
                                         <input type="hidden" id="modifiable" name="modifiable" value="1" />
-                                        <input type="hidden" id="sheetId" name="sheetId" value="{$sheet_id}" />
+                                        
 
                                         {if $init_registri eq 1}
                                             <label id="label_date" class="noprint">Data distribuzione:</label><input type="text" name="date" class="noprint" value="" id="date" size="3" />      
@@ -148,15 +149,23 @@
                                             <input type="submit" id="Salva" class="noprint" name="Salva" value="Salva" />
                                             <img src="../styles/block/icons/loading.gif" class="noprint" id="img_wait" alt="Attendere..." title="" />
                                             <a href="#" class="noprint" id="print" title="Stampa la ricevuta"><img src="../styles/block/icons/print.png" class="noprint" alt="stampa" /></a>
+                                            <!--
+                                            <a href="foglio.pdf" target="IFrame">Link Text</a>
+                                            <iframe name="IFrame" id="IFrame" src="foglio.pdf"  type="application/pdf" />
+                                            -->
                                         </div>
                                     </form> 
                                     <input type="hidden" id="config_start_blocksheet" value="{$config_start_blocksheet}" />
+                                    <input type="hidden" id="sheetId" name="sheetId" value="{$sheet_id}" />
+                                    
                                 </div>
                                 
                                 
                                 
                             </td></tr>
                     </table> 
-                    <div id="footer"></div>
+                                <div id="footer">
+                                    
+                                </div>
                 </body>
             </html>

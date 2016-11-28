@@ -24,6 +24,7 @@ $sheet_id = "";
 $num_indig = $person->getNumComponents($person_id);
 
 $otherinfo = "N° Comp: " . $num_indig;
+$numrec = ".......";
 $dataemiss=date("d/m/Y");       //viene sovrascritta se si tratta di modifica della consegna già effettuata.
 $arr_last_quantity = array();   //array che conterrà le quantità di prodotto distribuite. Le chiavi saranno l' id prodotto. 
 $arr_last_quantity_banco = array();
@@ -55,6 +56,7 @@ function loadPrevDistr($fid) {
     global $person_id;
     global $otherinfo;
     global $sheet_id;
+    global $numrec;
     global $arr_last_quantity;
     global $arr_last_quantity_banco;
     global $arrx;
@@ -70,8 +72,8 @@ function loadPrevDistr($fid) {
 
         $sheet_id = intval($arr_info['sheetId']); //traslo valore su db rispetto al valore di pagina iniziale impostato nelle configurazioni.
         $dataemiss=substr($arrx['dtime'], 0, 10);
-        
-        $otherinfo = "[" . ($sheet_id + intval($start_index) - 1) . "]" .
+        $numrec = $block->getSheetCode($sheet_id, true);
+        $otherinfo = "[" . $sheet_id . "]" .
                 "&nbsp;&nbsp;&nbsp;" . $dataemiss .
                 "&nbsp;&nbsp;&nbsp;N° Comp: " . $arrx["num_indig"];
 
@@ -214,6 +216,7 @@ $objSmarty->assign('person_id', $person_id);
 $objSmarty->assign('person_name', $person_name);
 $objSmarty->assign('address', $address);
 $objSmarty->assign('sheet_id', $sheet_id);
+$objSmarty->assign('numrec', $numrec);
 $objSmarty->assign('otherinfo', $otherinfo);
 $objSmarty->assign('link_last_distr', $link_last_distr);
 $objSmarty->assign('linktext', $linktext);

@@ -143,6 +143,7 @@ $block = new block(0); //Seleziono viveri Agea
 
 $arr_out = $block->getForReport3($datamin, $datamax, "", 1);  // 1 indica di far riferimento ad Agea. Gli allegati contengono infatti i prodotti distribuiti con Agea.
 
+
 if ($usaallegati) {
 //////////////////Salvataggio su registro cumulativo//////////
 

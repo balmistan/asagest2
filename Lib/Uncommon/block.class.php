@@ -131,7 +131,7 @@ class block {
         //  Passo alla tabella dei prodotti distribuiti.
         //In caso di update bisogna effettuare un' operazione in più e cioè
         //vedere se in tabella sono già presenti dei prodotti che non compaiono in POST e cancellarli.
-        $arr_output = array($this->bsheet_assoc_form_db['sheetId'] => $sheetId, "xxx" => $arr_save);
+        $arr_output = array("numrec"=> $this->getSheetCode($sheetId, true), "sheetId" => $sheetId, "xxx" => $arr_save);
 
         if ($update) {
             //ottengo gli id dei prodotti in tabella
@@ -673,7 +673,7 @@ class block {
           $numsheet = "";
         
           $res = $this->db->getRow("blocksheet", "YEAR(dtime)", array(
-          array("where", "sheetId", "=", $sheetId, true)
+          array("where", "sheetId", "=", intval($sheetId), true)
           ));
           
           
