@@ -16,7 +16,6 @@ $db = new db();
 
 $post = filter_input_array(INPUT_POST);
 
-debug($post);
 
 switch ($post['req']) {
 

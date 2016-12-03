@@ -618,20 +618,22 @@ class block {
 
 
         //Preparo array out
-
+        $sheetid = intval($sheetid);
         $result = array(
             "date" => $this->convertData(substr($arr_res_1[0]["dtime"], 0, 10)),
             "num_indig" => $arr_res_1[0]["num_indig"],
             "id_fam" => $arr_res_1[0]["family_register_number"],
             "surname" => $arr_res_1[0]["surname"],
             "name" => $arr_res_1[0]["name"],
-            "sheetid" => intval($sheetid) + intval(config::getConfig("start_index_blocksheet", "allegaticonfig" . REFAGEA)) - 1,
+            "sheetid" => $sheetid,
+            "recnum" => $this->getSheetCode($sheetid, false),
             "addr" => $arr_res_2[0]["address"],
             "com" => $arr_res_2[0]["nomeComune"],
             "prov" => $arr_res_2[0]["provincia"],
             "agea" => $arr_res_3,
             "banco" => $arr_res_4,
             "comit" => config::getConfig("sedecriabbr", "allegaticonfig" . REFAGEA)
+            
         );
 
 

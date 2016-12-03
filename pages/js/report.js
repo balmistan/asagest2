@@ -142,7 +142,12 @@ $(document).ready(function () {
         }).done(function (msg) {
 
             var res = JSON.parse(msg);
-            updateTable(res)
+            if (res == "danied") {
+                alert("sessione scaduta. Rieffettuare il login!")
+                window.location.href = "../index.php";
+            } else {
+                updateTable(res);
+            }
         });
     }
 

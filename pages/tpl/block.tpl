@@ -91,7 +91,7 @@
                             <table class="tableout tout_agea" cellpadding=0 cellspacing=0>
                                 <tbody>
                                     <tr><td colspan=4 id="numb">Scheda n° {$family_id}<input type="hidden" id="num_scheda" value="{$family_id}" /></td></tr>
-                                    <tr><td>Ric. N° <span id="numrec">{$numrec}</span></td></tr>
+                                    <tr><td colspan="4">Ric. N° <span id="numrec">{$numrec}</span></td></tr>
                                     <tr><td colspan=4 id="otherinfo">{$otherinfo}</td></tr>
                                     <tr><td colspan=4 id="person_name">Spett.le {$person_name}</td></tr>
                                     <tr><td colspan=4 id="address">{$address}</td></tr>
@@ -153,10 +153,11 @@
                                             <a href="foglio.pdf" target="IFrame">Link Text</a>
                                             <iframe name="IFrame" id="IFrame" src="foglio.pdf"  type="application/pdf" />
                                             -->
-                                        </div>
+                                        </div>       
+                                       <input  type="hidden" id="sheetId" name="sheetId" value="{$sheet_id}" />     
                                     </form> 
                                     <input type="hidden" id="config_start_blocksheet" value="{$config_start_blocksheet}" />
-                                    <input type="hidden" id="sheetId" name="sheetId" value="{$sheet_id}" />
+                                    
                                     
                                 </div>
                                 

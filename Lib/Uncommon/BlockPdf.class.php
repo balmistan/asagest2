@@ -14,26 +14,41 @@ class BlockPdf extends FPDF {
     public function Header() {
         $border = 0;
 
-        $this->SetFont('Arial', '', 10);
+        $this->SetFont('Arial', '', 8);
+        
+        $this->Cell(2.5, 0.5, "Ric. Num. " . $this->ArrData["recnum"], $border, 0, 'L');
+        $this->Cell(1.5, 0.5, "[ " . $this->ArrData["sheetid"] . " ] ", $border, 0, 'R');
+//$this->Cell(4.5, 0.5, "Ric. Num. " . $this->ArrData["recnum"] . " del " . $this->ArrData["date"], $border, 0, 'L');
+       $this->SetFont('Arial', '', 14);
 
-        $this->Cell(1.5, 0.5, "[ " . $this->ArrData["sheetid"] . " ] ", $border, 0, 'L');
+        $this->Cell(4.5, 0.5, "Scheda n. " . $this->ArrData["id_fam"], $border, 0, 'C');
+         
+        $this->SetFont('Arial', '', 8);
+        
+        $this->Cell(4.5, 0.5, "Data: " .  $this->ArrData["date"], $border, 1, 'C');
+        
+       // $this->Cell(1.5, 0.5, "[ " . $this->ArrData["sheetid"] . " ] ", $border, 0, 'L');
 
-        $this->Cell(2.5, 0.5, $this->ArrData["date"], $border, 0, 'R');
+        //$this->Cell(2.5, 0.5, $this->ArrData["date"], $border, 0, 'R');
 
 
-        $this->SetFont('Arial', '', 14);
-
-        $this->Cell(5, 0.5, "Scheda n. " . $this->ArrData["id_fam"], $border, 0, 'C');
+        
 
 
-        $this->SetFont('Arial', '', 10);
+       // $this->SetFont('Arial', '', 10);
 
-        $this->Cell(4, 0.5, iconv('UTF-8', 'windows-1252', " N° comp: ") . $this->ArrData["num_indig"], $border, 1, 'C');
+        //$this->Cell(5, 0.5, iconv('UTF-8', 'windows-1252', " N° comp: ") . $this->ArrData["num_indig"], $border, 1, 'C');
 
         $this->SetFont('Arial', '', 12);
 
-        $this->Cell(13, 0.8, "Spett.le " . iconv('UTF-8', 'windows-1252', $this->ArrData["surname"] . " " . $this->ArrData["name"]), $border, 1, 'C');
+        //$this->SetFont('Arial', '', 6);
+        //$this->Cell(1.5, 0.8, "[ " . $this->ArrData["sheetid"] . " ] ", $border, 0, 'L');
+        
+        $this->SetFont('Arial', '', 12);
+        $this->Cell(13, 0.8, "Spett.le " . iconv('UTF-8', 'windows-1252', $this->ArrData["surname"] . " " . $this->ArrData["name"]) . " (".$this->ArrData["num_indig"].")", $border, 1, 'C');
 
+        //$this->Cell(5, 0.5, iconv('UTF-8', 'windows-1252', " N° comp: ") . $this->ArrData["num_indig"], $border, 2, 'C');
+        
         $addr = iconv('UTF-8', 'windows-1252', $this->ArrData["addr"]);
 
         $com = "";
@@ -42,8 +57,11 @@ class BlockPdf extends FPDF {
             $com = iconv('UTF-8', 'windows-1252', $this->ArrData["com"]) . " (" . $this->ArrData["prov"] . ")";
 
         $this->Cell(13, 0.5, $addr . " " . $com, $border, 1, 'C');
+        
 
-        //Inserisco il Comitato
+       
+        
+         //Inserisco il Comitato
         $this->SetFont('Arial', '', 10);
         $this->Cell(13, 0.5, iconv('UTF-8', 'windows-1252', $this->ArrData["comit"]), $border, 1, 'C');
 

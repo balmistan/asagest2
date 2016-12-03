@@ -2,12 +2,23 @@ $(document).ready(function(){
     
     var availableDates = getdate();
     
+    $("#num").focus(function(){
+        if($(this).val() == ""){
+            alert("Non risultano distribuzioni Agea alla data indicata!");
+        }
+    });
+    
+    
+    
     $("#date").datepicker({ 
         beforeShowDay: available,
         onClose: function(date){
             $(window.location).attr('href', '?date='+encodeURIComponent($("#date").val()));
         }
     });
+    
+    
+    //////////////////////// FUNCTIONS ////////////////////////////////////
     
  
     function getdate(){

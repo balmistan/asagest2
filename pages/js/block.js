@@ -1,6 +1,6 @@
 $(document).ready(function () {
 //    var qty_not_present = false;
-    var modifiable = 1;
+    var modifiable = true;        //click su icone prodotti abilitato
     var save_enabled = true;
     var color1 = "gray";          //colore per viveri Agea
     var color2 = "#dceff5";           //colore per viveri Banco
@@ -35,10 +35,15 @@ $(document).ready(function () {
   })
   
 
-     function myprint () {  //intercetto click su link stampa     
-       var opn = window.opener.location = "Stampa?id=" + $("#sheetId").val();
+     function myprint () {  //intercetto click su link stampa   
+      var myurl = document.URL.split('/').slice(0, -1).join('/') + "/Stampa?id=" + $("#sheetId").val();
+         
+         //alert(myurl)
+         var opn = window.open(myurl);
        if(opn){
-           opn.print();
+           window.print();
+           opn.focus();
+           opn.close();
        }
     }
 
@@ -166,8 +171,8 @@ $(document).ready(function () {
                     //alert(JSON.stringify(URLToArray($(this).serialize())));
                     //Posso adesso inviare al server
                     var res = send($(this).serialize());      //invio al server
-                  
-                    $("#sheetId").val(sheetId);
+                 
+                    $("#sheetId").val(res['sheetId']);
                     $("#numrec").html(res['numrec']);
                     $("#otherinfo").html("[" + res['sheetId'] + "]");
 
@@ -181,7 +186,7 @@ $(document).ready(function () {
                         $("#removedistr").show(); //Mostro il pulsante rimuovi distribuzione.
                     }
 
-
+                    modifiable = false; //Rimuovo funzione click su icone per aggiunta prodotto
                     $(".X").remove();  //rimuovo i pulsanti di cancellazione
                     $("#Salva").remove();  //rimuovo il pulsante Salva
                     $(".clearButton").remove();
@@ -190,6 +195,7 @@ $(document).ready(function () {
                     $("#check").remove();
                     $("#saved_msg").show();
                     $("#saved_msg").css("visibility", "visible").fadeIn().fadeOut(5000);
+                    //$("#saved_msg").css("visibility", "visible").fadeIn();
                     $("#print").show();
                    
 
