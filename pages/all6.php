@@ -73,10 +73,10 @@ $arr_style_config[] = "../styles/orizontalmenu/orizontalmenu.css";
 $arr_style_config[] = UI_STYLE;
 $arr_style_config[] = "../styles/allegati/allegato9.css";
 
+
 $arr_js_config[] = JQUERY;
 $arr_js_config[] = JQUERY_UI;
 $arr_js_config[] = "../Lib/Common/js/datepicker/ui.datepicker-it.js";
-$arr_js_config[] = "js/fastsearch.js";
 $arr_js_config[] = "js/all9.js";
 
 $menu = getOrrMenu();

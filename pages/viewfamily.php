@@ -34,7 +34,6 @@ $arr_style_config[] = "../styles/viewfamily/viewfamily.css";
 $arr_js_config[] = JQUERYNEW;
 $arr_js_config[] = "../Lib/Common/js/cf_handle.js";
 $arr_js_config[] = "../Lib/Common/js/utility.js";
-$arr_js_config[] = "js/fastsearch.js";
 $arr_js_config[] = "js/viewfamily.js";
 
 $menu = getOrrMenu();
