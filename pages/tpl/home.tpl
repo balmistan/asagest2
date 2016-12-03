@@ -25,6 +25,6 @@
            <li><a href="logout"><img src="{$path_icons}logout.png" class="icons" alt="logout" title="logout" /></a></li>
             </ul>
         </div>
-            <div id="bottom_pos">E' possibile accedere ad una scheda premendo e lasciando il tasto CTRL e digitando subido dopo in modo rapido il numero della scheda da cercare. L' operazione può essere effettuata da qualsiasi pagina.</div>
+            <div id="bottom_pos">E' possibile accedere ad una scheda digitando il numero della scheda da cercare nella casella quì a sinistra e premendo invio. L' operazione può essere effettuata anche da altre pagina.</div>
     </body>
 </html>
