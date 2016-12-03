@@ -41,9 +41,7 @@ $(document).ready(function () {
          //alert(myurl)
          var opn = window.open(myurl);
        if(opn){
-           window.print();
            opn.focus();
-           opn.close();
        }
     }
 
