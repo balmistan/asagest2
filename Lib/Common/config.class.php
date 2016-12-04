@@ -32,7 +32,10 @@ class config {
             else
                 return "";
         }else {
-            $result = $dbstore->getRows($configTable, array("configName", "configDescription", "configValue", "configTitle", "configEditable"));
+            $result = $dbstore->getRows($configTable, array("configName", "configDescription", "configValue", "configTitle", "configEditable"), array(), array(
+                array("orderby", "id", true),
+                array("order", "asc")
+            ));
             return $result;
         }
     }
