@@ -54,8 +54,10 @@ class allegatin {
         //           $this->NumPages = $start_num_page;
         //       } else {
 //Ottengo il numero di righe complessivamente presenti nella tabella
-        $arr_res = $this->db->getRows($this->Table1, "numrif");                 //una colonna qualsiasi
-        $numrows = count($arr_res);
+        $arr_res = $this->db->getRows($this->Table1, "COUNT(*)");                 //una colonna qualsiasi
+      
+        $numrows = $arr_res[0]["COUNT(*)"];
+    
 
 //ottengo il numero di pagine:
         $quoz_int = intval($numrows / 25);
