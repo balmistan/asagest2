@@ -46,8 +46,8 @@ $configuration = config::getConfig();
 $form->addText("<p class=\"promem\"> Ricordarsi di salvare, terminate le modifiche</p>","",2);
 
 $optprogagea = array(
-    "prog1516"=>"Anno 2015/2016",
-    "prog2017"=>"Anno 2017"
+    "_1"=>"Anno 2015/2016",
+    "_2"=>"Anno 2017"
     );
 
 

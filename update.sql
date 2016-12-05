@@ -10,21 +10,34 @@ INSERT INTO `config` (`configName`, `configDescription`, `configValue`, `configT
 ('signature_block', 'Area firma sul blocchetto consegne (SI/NO):', 'NO', 'Consente di rimuovere l'' area firma dal blocchetto consegne', 0),
 ('init_registri', 'Data manuale su blocchetto (SI/NO):', 'si', 'Data manuale su blocchetto per inserire distribuzioni arretrate', 0),
 ('yearref', 'Anno di riferimento blocchetto:', '2016', 'Anno di riferimento blocchetto distribuzioni', 0),
-('progagea', 'Selezione dei registri agea da utilizzare', 'prog1516', 'Permette di selezionare il programma Agea in corso e quindi i relativi registri.', 1);
+('progagea', 'Selezione dei registri agea da utilizzare', '_1', 'Permette di selezionare il programma Agea in corso e quindi i relativi registri.', 1);
 
-RENAME TABLE all8productcumprog1516 TO all8productcumprog2017;
+RENAME TABLE all8productcumprog1415 TO all8productcum_1;
 
-RENAME TABLE all8registercumprog1516 TO all8registercumprog2017;
+RENAME TABLE all8registercumprog1415 TO all8registercum_1;
 
-RENAME TABLE allegaticonfigprog1516 TO allegaticonfigprog2017;
+RENAME TABLE allegaticonfigprog1415 TO allegaticonfig_1;
 
 
 
-RENAME TABLE all8productcumprog1415 TO all8productcumprog1516;
+RENAME TABLE all8productcumprog1516 TO all8productcum_2;
 
-RENAME TABLE all8registercumprog1415 TO all8registercumprog1516;
+RENAME TABLE all8registercumprog1516 TO all8registercum_2;
 
-RENAME TABLE allegaticonfigprog1415 TO allegaticonfigprog1516;
+RENAME TABLE allegaticonfigprog1516 TO allegaticonfig_2;
+
+drop table if exists `adminMenu`;
+drop table if exists `images`;
+drop table if exists `blockLanguages`;
+drop table if exists `galleries`;
+drop table if exists `moduleAccess`;
+drop table if exists `moduleLanguages`;
+drop table if exists `modules`;
+drop table if exists `redirects`;
+drop table if exists `tempFile`;
+drop table if exists `thumbs`;
+drop table if exists `userattribs`;
+drop table if exists `userInfo`;
 
 
 
