@@ -111,11 +111,18 @@ class excelconvert {
 
         header("Content-Disposition: attachment;filename=" . $fileout);
 
-        header("Content-Type:   application/vnd.ms-excel; charset=utf-8");
-//header("Content-Type: application/vnd.openxmlformats-officedocument.spreadsheetml.sheet");
+        //header("Content-Type:   application/vnd.ms-excel; charset=utf-8");
+
+        header("Content-Type: application/vnd.openxmlformats-officedocument.spreadsheetml.sheet");
 
         ob_end_clean();
-        $objWriter->save('php://output');
+        
+        $filePath = "../Personal/".$fileout;
+        $objWriter->save($filePath);
+        readfile($filePath);
+        unlink($filePath);
+        
+       // $objWriter->save('php://output');
     }
 
     public function Save($fileout) {
