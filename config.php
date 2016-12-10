@@ -5,16 +5,23 @@ $hostname = 'localhost'; //se settato ha una priorità superiore rispetto all'ip
 $ip = '127.0.0.1';
 $port = '3306';
 $user = 'root'; 
-$dbname = 'servizioasa2';              
-$password = '';
+$dbname = 'servizioasa2';             
+$password = '????';
 
-$usedebug = true;  
+$usedebug = false;  
 
-//////////////////////////////////////// FINE CONFIGURAZIONI ///////////////////////////////////////////////////////////
+
+
+
+//////////////////////////////////////// FINE CONFIGURAZIONI (Le righe sottostanti non devono essere modificate) ////////////////////////////////
+
 
 date_default_timezone_set('Europe/Rome');
+
 $path="../";
+
 $dsn = 'mysql:dbname='.$dbname.';host='.$hostname.';charset=UTF8';
+
 $opt['mysql']['configtable']="config";
 
 //Tabella delle sessioni
@@ -40,21 +47,36 @@ define("LOGIN",$path."pages/index.php");
 
 //LINK A FILE JQUERY
 
-define("JQTABLES",$path."Plugin/DataTables-1.9.1");
+define("JQTABLES","../Plugin/DataTables-1.10.7");
 define("JQALERT",$path."Plugin/jquery.alerts-1.1");
 
-define("JQUERY",$path."js/jquery-1.7.2.min.js");            
-define("JQUERY_UI",$path."js/jquery-ui-1.8.20.custom.min.js");  
+
+define("JQUERYNEW",$path."js/jquery-1.11.1.min.js");
+define("JQUERY",JQUERYNEW);
+
+ 
+define("JQUERY_UINEW","../Plugin/jquery-ui-1.12.0/jquery-ui.min.js");
+define("JQUERY_UI",JQUERY_UINEW); 
 
 //define("UI_STYLE",LIBSSDIR.LIBNAME."/css/ui-lightness/jquery-ui.css");
-define("UI_STYLE",LIBSSDIR.LIBNAME."/css/flick/jquery-ui.css");
+//define("UI_STYLE",LIBSSDIR.LIBNAME."/css/flick/jquery-ui.css");
+define("UI_STYLENEW","../Plugin/jquery-ui-1.12.0/jquery-ui.min.css");
+define("UI_STYLE",UI_STYLENEW);
+
 define("SHORTCUTICON",$path."styles/page/images/cri.png");
-define("PAGETITLE", "ASAGesT");
+
+define("PAGETITLE", "ASAGesT 2");
+
 define("NOPHOTO", $path."styles/page/images/nophoto.png");
-//////////////////////////////////////////// FINE CONFIGURAZIONI//////////////////////////////////////////////////////////////////////////
+
+
+
+//////////////////////////////////////////// FINE CONFIGURAZIONI ////////////////////////////////////////////////////////////////////////////////////////
+
 define("DSN",$dsn);
 define("DBUSER",$user);
 define("DBPASSWORD",$password);
+
 define("USEDEBUG", $usedebug);
 
 $opt['dbtype'] = $dbtype;
@@ -65,8 +87,10 @@ $opt['dbname']= $dbname;
 $opt['username'] = $user;
 $opt['password'] = $password;
 
+
 define("CRLF", "\n<br />\n");
 
-$opt['disponibleblocks'] = array("2014"=>"2014", "2015"=>"2015");   //devono esserci le tabelle nel db
-$opt['progagea'] = array("prog1415"=>"Prog. 2014/2015");
+//$opt['disponibleblocks'] = array("2015"=>"2015", "2016"=>"2016", "2017"=>"2017");   //devono esserci le tabelle nel db
+//$opt['progagea'] = array("prog1415"=>"Prog. 2014/2015");
+
 ?>
