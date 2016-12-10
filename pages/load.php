@@ -24,7 +24,6 @@ $arr_style_config[] = "../styles/load/load.css";
 $arr_js_config[] = JQUERY;
 $arr_js_config[] = JQUERY_UI;
 $arr_js_config[] = JQPLUGINS . "/datepicker/ui.datepicker-it.js";
-$arr_js_config[] = "js/fastsearch.js";
 $arr_js_config[] = "js/load.js";
 
 $menu = getOrrMenu();

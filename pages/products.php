@@ -38,7 +38,6 @@ if (!$is_mobile)
 
 $arr_js_config[] = JQUERY;
 $arr_js_config[] = JQUERY_UI;
-$arr_js_config[] = "js/fastsearch.js";
 $arr_js_config[] = "js/products.js";
 if (!$is_mobile) {
     $arr_js_config[] = "../Plugin/jpegcam/webcam.js";

@@ -30,7 +30,6 @@ $page->addMeta("initial-scale=0.5, maximum-scale=0.5", array("name" => "viewport
 $page->addStyle(UI_STYLE);
 $page->addJS(JQUERY);
 $page->addJS(JQUERY_UI);
-$page->addJS("js/fastsearch.js");
 $page->addJS("js/jquery.multiselect.min.js");
 
 

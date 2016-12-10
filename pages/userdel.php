@@ -18,7 +18,7 @@ $page->setTitle("Cancellazione utente");
 $page->addStyle("../styles/page/page.css");
 $page->addStyle("../styles/orizontalmenu/orizontalmenu.css");
 $page->addJS(JQUERY);
-$page->addJS("js/fastsearch.js");
+
 
 
 $page->addCode(menu_convert(array("data"=>getOrrMenu(), "class"=>"admin_menu" )));  //eseguo la conversione ad html perchè non sto usando Smarty.

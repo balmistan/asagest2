@@ -39,7 +39,6 @@ $arr_js_config[] ="../Plugin/gridster/src/jquery.gridster.js";
 $arr_js_config[] ="../Plugin/gridster/src/jquery.gridster.extras.js";
 $arr_js_config[] ="../Plugin/gridster/src/utils.js";
 $arr_js_config[] = "js/sortproducts.js";
-$arr_js_config[] = "js/fastsearch.js";
 
 $menu = getOrrMenu();
 

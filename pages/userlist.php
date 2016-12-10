@@ -31,7 +31,7 @@ if (strpos($_SERVER['HTTP_USER_AGENT'], 'Mobile') !== false) {
 }
 
 $page->addJS(JQUERY);
-$page->addJS("js/fastsearch.js");
+
 
 $page->addMeta("initial-scale=0.9, maximum-scale=0.9", array("name" => "viewport", "orientation" => "landscape"));
 $page->addMeta("initial-scale=0.5, maximum-scale=0.5", array("name" => "viewport", "orientation" => "portrait"));

@@ -34,7 +34,7 @@ $page->addStyle("../styles/mobile/user/useredit.css");
 $page->addStyle(UI_STYLE);
 $page->addJS(JQUERY);
 $page->addJS(JQUERY_UI);
-$page->addJS("js/fastsearch.js");
+
 $page->addJS("js/jquery.multiselect.min.js");
 
 

@@ -8,7 +8,10 @@ $(document).ready(function(){
             
         $("input:text").each(function(){
                
-            if($(this).val()=='') nocomplete=true;
+            if($(this).val()==''){ 
+               
+                nocomplete=true;
+            }
         })
             
         $("select").each(function(){
