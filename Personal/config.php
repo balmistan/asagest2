@@ -42,6 +42,10 @@ define("LIBNAME","Lib");
 define("LIBSSDIR",$path);
 define("LIBPATH",$path);
 
+//Smarty plugin
+
+define("SMARTYCOMPILEDIR". "../Personal/templates_c");
+
 //Redirect in caso di logout
 define("LOGIN",$path."pages/index.php");
 

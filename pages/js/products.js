@@ -49,9 +49,8 @@ $(document).ready(function(){
         }
     })
    
-    $("document").on("click", ".rem", function(){
-        alert("")
-      //  $(this).parent().parent().remove();
+    $(document).on("click", ".rem", function(){
+        $(this).parent().parent().remove();
     });
     
    
