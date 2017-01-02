@@ -29,7 +29,7 @@ $(document).ready(function () {
     });
 
 
-    $("#Rimuovi").live("click", function () {
+    $("#Rimuovi").click( function () {
         var r = confirm("Si sta per rimuovere il carico del " + $("#date").val() + "\n Proseguire?");
         if (r) {
 
