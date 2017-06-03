@@ -8,7 +8,9 @@ $(document).ready(function () {
     var debug = 0;     //solo risposte con errore
     var debug2 = 0;   // risposte anche non di errore
 
-    //  var arr_giacze = getGiacze(); //Prelevo le giacenze Agea dall' allegato 8
+      var arr_giacze_agea = getGiacze(); //Prelevo le giacenze Agea dall' allegato 8
+      
+      //alert(JSON.stringify(arr_giacze_agea))
 
     var start_qty_agea = getQtyAgea();
 
