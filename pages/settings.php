@@ -45,6 +45,10 @@ $configuration = config::getConfig();
 
 $form->addText("<p class=\"promem\"> Ricordarsi di salvare, terminate le modifiche</p>","",2);
 
+$optprogagea = array("prog1415"=>"Prog. 2014/2015");
+
+
+
 foreach ($configuration as $confrow) {
 /*
     if ($confrow['configName'] == "yearref") {
@@ -53,7 +57,7 @@ foreach ($configuration as $confrow) {
     }
    */ 
     if ($confrow['configName'] == "progagea") {
-        $form->addSelectBox_2("progagea", "Progr. Agea", $opt['progagea'], array(), $confrow['configValue']);
+        $form->addSelectBox_2("progagea", "Progr. Agea", $optprogagea, array(), $confrow['configValue']);
         continue;
     }
 

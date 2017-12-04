@@ -90,7 +90,7 @@ $opt['password'] = $password;
 
 define("CRLF", "\n<br />\n");
 
-$opt['disponibleblocks'] = array("2015"=>"2015", "2016"=>"2016", "2017"=>"2017");   //devono esserci le tabelle nel db
-$opt['progagea'] = array("prog1415"=>"Prog. 2014/2015");
+//$opt['disponibleblocks'] = array("2015"=>"2015", "2016"=>"2016", "2017"=>"2017");   //devono esserci le tabelle nel db
+//$opt['progagea'] = array("prog1415"=>"Prog. 2014/2015");
 
 ?>
